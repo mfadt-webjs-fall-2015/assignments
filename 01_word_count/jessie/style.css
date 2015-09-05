@@ -1,0 +1,45 @@
+body {
+	font-family: monospace;
+}
+
+#header{
+	display: inline-block;
+	position: fixed;
+	width: 320px;
+	left: calc(50vw - 160px);
+	top: 10vh;
+}
+
+#container {
+	display: block;
+	width: 200px;
+	position: relative;
+	left : 10vw;
+	margin-top: 2em;
+}
+
+#input {
+	display: block;
+	position: relative;
+	width: 80vw;
+	left: 10vw;
+}
+
+.wordcontainer {
+	display: inline-block;
+	width: 100%;
+}
+
+.word {
+	display: inline;
+	margin-right: 2em;
+}
+
+.countcontainer {
+	display: inline-block;
+}
+
+.count {
+	display: inline;
+	font-style: bold;
+}
