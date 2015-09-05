@@ -2,6 +2,14 @@ body {
 	font-family: monospace;
 }
 
+#header{
+	display: inline-block;
+	position: fixed;
+	width: 320px;
+	left: calc(50vw - 160px);
+	top: 10vh;
+}
+
 #container {
 	display: block;
 	width: 200px;
