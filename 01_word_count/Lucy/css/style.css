@@ -1,0 +1,95 @@
+body {
+	margin: 0 auto;
+	background-color: #D8F0F3;
+}
+h1 {
+	margin: 0 auto;
+	font-family: 'Francois One';
+	font-size: 5em;
+	text-align: center;
+	color: #BC2831;
+	z-index: 2;
+}
+h2 {
+	margin: 0 auto;
+	font-family: 'Advent Pro';
+	font-size: 1.5em;
+	text-align: center;
+	z-index: 2;
+}
+p {
+	margin: 0 auto;
+	font-family: 'Advent Pro';
+	font-size: 1em;
+	text-align: left;
+	color: #BC2831;
+	z-index: 2;
+}
+#boku {
+	position: absolute;
+	width: 50vw;
+	margin-top: 5vh;
+	margin-left: 25vw;
+	color: #fff;
+}
+#bone {
+	position: fixed;
+	margin: 0 auto;
+	margin-top: 2.8vh;
+	margin-left: 23vw;
+	width: 800px;
+	height: 300px;
+	background-image: url('../img/bokuBone.png');
+	background-repeat: no-repeat;
+	z-index: 0;
+}
+#bokuMaker {
+	margin-top: 15vh;
+	z-index: 2;
+}
+form {
+	text-align: center;
+}
+input {
+	width: 210px;
+	height: 30px;
+	font-family: 'Advent Pro';
+	font-size: 1em;
+	color: #5FC9D2;
+	text-align: center;
+}
+#submit {
+	width: 100px;
+	height: 30px;
+	background-color: #BC2831;
+	/*outline: 3px solid white;*/
+	color: white;
+	font-size: 1.2em;
+	font-family: 'Francois One';
+	padding: 0;
+}
+#bokuDisplay, .error {
+	margin: auto;
+	margin-top: 5vh;
+	text-align: center;
+}
+.bokuLine p {
+	margin: 0 auto;
+	margin-top: 1vh;
+	text-align: center;
+	font-size: 1.3em;
+}
+.error p {
+	margin: 0 auto;
+	text-align: center;
+	font-size: 1.3em;
+}
+
+
+
+
+
+
+
+
+
