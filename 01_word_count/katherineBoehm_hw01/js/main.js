@@ -1,22 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ////////////////////////////////
 function cleanString(str) {
     return str.replace(/[^\w\s]|_/g, '')
