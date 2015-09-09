@@ -2,10 +2,10 @@ var wordCount = function(inputText){
 
 //clean up text and space(s)
 var cleanText = inputText.replace(/[\.,-\/#!$%\^&\*;:{}=\-_`~()]/g,"");
-	cleanText = cleanText.replace(/\s{2,}/g," ");
+cleanText = cleanText.replace(/\s{2,}/g," ");
 //split text and sort it 
 var splitText = cleanText.split(" ");
-var	sortText = splitText.sort();
+var sortText = splitText.sort();
 
 var wordFreq = {};
 //count word frequency
@@ -16,16 +16,17 @@ for(var i = 0; i < sortText.length; i++){
     }else{
         wordFreq[currentWord] = 1;
     }
-};
+}
 
 //push them into an array, and sort them in descending order 
-//why doesn't this work?
 var freqArray = [];
 for (var word in wordFreq){
 	if(wordFreq.hasOwnProperty(word)){
-		freqArray.push([word, wordFreq[word]]);
+		freqArray.push({
+			text: word,
+			frequency: wordFreq[word]});
 	}
-};
+}
 freqArray.sort(function(a, b){
 	if(a.frequency > b.frequency){return -1;}
 	else if(a.frequency < b.frequency){return 1;}
@@ -33,9 +34,9 @@ freqArray.sort(function(a, b){
 });
 
 //log the result inside of console
-for (var currentWord in wordFreq){
-	console.log(currentWord + ": " + wordFreq[currentWord]);
-};
+for (var j=0; j<freqArray.length; j++){
+	console.log(freqArray[j].text + ": " + freqArray[j].frequency);
+}
 
 };
 
