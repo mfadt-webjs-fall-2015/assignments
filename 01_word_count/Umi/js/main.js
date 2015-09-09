@@ -4,7 +4,7 @@ Web Advanced Javascript - Fall 2015
  */
 
 var app = app || {};
-var frequency;
+var frequency, sorted;
 
 app.main = (function() {
 	// console.log('Your code starts here!');
@@ -20,22 +20,28 @@ app.main = (function() {
         return cleanString(string).match(regex) || [];
     }
 
-    function sortByFrequency(array) {
-        frequency = [];
+    function makeIntoArray(array) {
+        frequency = {};
         // set all initial frequencies for each word to zero
         array.forEach(
             function(value) { frequency[value] = 0; }
         );
         // create new array with words and their frequencies
-        var uniques = array.filter(
+        var newFreq = array.filter(
             function(value) { return ++frequency[value] == 1; }
         );
         
-        return uniques.sort(function(a, b) { 
-        	return frequency[b] - frequency[a]; 
-        });
-
+        return newFreq;
     };
+
+    function sortList(array) {
+        var sortable = [];
+        for (var word in array) {
+            sortable.push([word, array[word]])
+            sortable.sort(function(a, b) {return b[1] - a[1]})    
+        }
+        return sortable;
+    }
 
     var startCounting = function() {
         var value = $('#text').val();
@@ -48,8 +54,10 @@ app.main = (function() {
         var allChars = value.length;
         var wordPlusPlusCount = value.replace(regex, '').length;
 
-        var sorted = sortByFrequency(eachWord);
+        makeIntoArray(eachWord);
         // console.log(frequency);
+        
+        sorted = sortList(frequency);
         console.log(sorted);
 
         $('#wordCount').html(wordCount);
@@ -61,11 +69,10 @@ app.main = (function() {
     var displayOccurrence = function(){
     	$('#eachWord').html('');
 
-        for (var key in frequency) {
-            var objValue = frequency[key];
+        for (var key in sorted) {
+            var objValue = sorted[key];
             // console.log(key + objValue);
-            
-            $('#eachWord').append('<li>' + key + ' <span class="numStyle">[' + objValue + ']</span> </li>');
+            $('#eachWord').append('<li> <span class="numStyle">[' + objValue + ']</span> </li>');
         }
     };
 
