@@ -1,0 +1,76 @@
+/**********************************************/
+/*normalize css for all browsers, reset values*/
+/**********************************************/
+* {
+	padding:0;
+	margin: 0;
+}
+
+html, body {
+	margin: 0;	
+	padding: 0;	
+	height: 100%;
+	width: 100%;
+	background-color: #F6FFFF;
+}
+/**********************************************/
+
+#main {
+	margin: auto;
+	text-align: center;
+}
+
+h1 {
+	margin-top: 100px;
+	font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+}
+
+#inputText, #response-container {
+	width: 500px;
+	margin: auto;
+	margin-top: 50px;
+	text-align: center;
+}
+
+#input {
+	width: 500px;
+	height: 300px;
+	font-family: 'Raleway', sans-serif;
+    font-weight: 200;
+	font-size: 16px;
+	padding: 5px;
+	padding-left: 8px;
+	background-color: #F6FFFF;
+	border: 1px solid #eee;
+}
+
+#submit {
+	width: 80px;
+	height: 30px;
+	background-color: #F6FFFF;
+	border: 1px solid #000;
+	font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+	font-size: 16px;
+	margin-top: 20px;
+}
+
+#response-title {
+	margin-top: 50px;
+	text-align: left;
+}
+
+#response-container, #response {
+	margin-top: 30px;
+	text-align: left;
+}
+
+.response-word, .response-freq {
+	width: 180px;
+}
+
+.response-word {
+	font-family: 'Raleway', sans-serif;
+    font-weight: 400; 
+}
