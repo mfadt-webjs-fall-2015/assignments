@@ -1,8 +1,24 @@
+
 var nowLine ;
+
+
+function submit(){
+	//console.log("Click");
+	var CountWhat = document.getElementById('textHere').value;
+	//console.log(CountWhat);
+	var resulrHere_Count = document.getElementById('resulrHere_Count');
+	var resulrHere_Summery = document.getElementById('resulrHere_Summery');
+	resulrHere_Count.innerHTML = wordCount(CountWhat);
+	var summeryHere = summery();
+	for(var item in summeryHere){
+		resulrHere_Summery.innerHTML += item +": "+ summeryHere[item]+"<br>";
+	}
+	//resulrHere_Summery.innerHTML = for( var item in summery());
+}
 
 function wordCount(Something){
 	nowLine = Something;
-	var Words_Counter = 0;
+	var Words_Counter = 1;
 	for(var token in Something){
 		if(Something[token] == " "){
 			Words_Counter ++;
@@ -23,7 +39,6 @@ function summery(){
 	var nowWords = "";
 	var dic = {};
 	for(var token in nowLine){
-		
 		if(nowLine[token]== " "){
 			nowWordsInDic(nowWords);
 			nowWords = "";
@@ -31,6 +46,7 @@ function summery(){
 			nowWords += [nowLine[token]];
 		};
 	};
+
 	nowWordsInDic(nowWords);
 			nowWords = "";
 	return dic;
