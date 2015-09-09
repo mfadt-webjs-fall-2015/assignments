@@ -11,6 +11,17 @@ function wordCount(rawInput){
 	console.log ("word count: "+ splitText.length + " words");
 
 	var result = frequencyCount (splitText);
+	function compare (a,b){
+		if (a.freq < b.freq){
+			return 1;
+		}
+		if (a.freq > b.freq){
+			return -1
+		}
+		return 0;
+	}
+	result.sort(compare);
+
 	// console.log(result);
 	for(var i = 0; i < result.length; i++){
 		var obj = result[i];
