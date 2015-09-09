@@ -1,0 +1,87 @@
+/* your style begins here */
+body {
+    margin: 0 auto;
+    background: #eee;
+    font-size: 11pt
+}
+h1 {
+    margin:0;
+    font-family: 'Bitter', serif;
+    font-size: 53pt;
+    letter-spacing: -1px;
+}
+h1.twoLines {
+    margin-top:-18px;
+}
+#container {
+    margin: 20px auto;
+    width: 80vw;
+    height: 100%;
+}
+#text {
+    /*border: 2px solid red;*/
+    height: 200px;
+    width: 100%;
+    margin: 40px 0;
+
+    -webkit-box-shadow: 2px 2px 42px -3px rgba(143,143,143,1);
+    -moz-box-shadow: 2px 2px 42px -3px rgba(143,143,143,1);
+    box-shadow: 2px 2px 42px -3px rgba(143,143,143,1);
+}
+#result {
+    text-align: center;
+    text-transform: uppercase;
+}
+#left {
+    float:left;
+    width: 25%;
+}
+#middle {
+    float:left;
+    width: 45%;    
+}
+#right {
+    float:left;
+    width: 30%;    
+}
+
+textarea {
+    height: 100%;
+    width: 100%;
+    border: 0px;
+}
+
+span {
+    text-align: left;
+    color:#999;
+    font-size: 10pt;
+    text-transform: none;
+}
+
+#eachWord {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+#eachWord li {
+    display: inline-block;
+    background: yellow;
+    padding: 4px 7px;
+    margin: 0 10px 10px 0;
+    font-size: 10pt;
+    color: #666;
+}
+.numStyle {
+    color: black;
+    font-weight: bold;
+
+}
+#wordList {
+    clear: both;
+    width: 100%;
+    min-height: 300px;
+}
+
+#countBtn {
+	margin-top: -10px
+}
