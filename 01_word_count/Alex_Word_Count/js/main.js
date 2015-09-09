@@ -18,7 +18,7 @@ button.onclick = function(){
 for (var x in counts) {
     var newElement = document.createElement('div');
     newElement.id = counts[x]; newElement.className = "counts";
-    newElement.innerHTML = counts[x];
+    newElement.innerHTML = x + "=" +counts[x];
     document.body.appendChild(newElement);
 }
 

@@ -1,6 +1,7 @@
 body {
     background-color: aqua;
-    font-family: sans-serif;
+    font-family: helvetica,sans-serif;
+    
 }
 
 h1{
@@ -16,9 +17,19 @@ h1{
 
 }
 
-.counts{
+.results{
+    float:left;
+    font-style:italic;
 
-	background-color:yellow;
+	
+}
+
+.counts{
+    margin-left:5%;
+    margin-top:5%;
+    font-style: bold,italic;
+    font-size:25px;
+
 }
 
 input[type="text"] {
@@ -34,8 +45,10 @@ input[type="button"] {
     height: 50px;
     display: block;
     margin-bottom: 10px;
-    font-size:20px;
-    background-color: violet;
+    border-style:none;
+    font-size:30px;
+    background-color: blue;
+    font-color:yellow;
 }
 
 
