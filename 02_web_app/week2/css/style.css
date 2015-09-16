@@ -1,0 +1,40 @@
+body{
+	background-color: white;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 120px;
+	overflow: hidden;
+}
+
+#text{
+	position: absolute;;
+	top:45%;
+	left: 50%;
+	margin-top: -60px;
+	margin-left: -660px;
+	text-align: center;
+	vertical-align: center;
+	color: black;
+	font-family: 'Montserrat', sans-serif;
+
+}
+
+#oldScore{
+	position: absolute;
+	top: 5%;
+	left: 10%;
+	font-size: 24px;
+}
+
+#score{
+	position: absolute;
+	top: 5%;
+	left: 2%;
+	font-size: 24px;
+}
+
+#timer{
+	position: absolute;
+	top: 5%;
+	left: 90%;
+	font-size: 24px;
+}
