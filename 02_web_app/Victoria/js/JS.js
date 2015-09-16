@@ -1,3 +1,7 @@
+var app = app || {};
+
+app.main = (function(){
+
 var fontFamily = ["'Oswald', sans-serif","'Arvo', serif","'Quicksand',sans-serif","'Maven Pro',sans-serif","'Play',sans-serif","'Candal', sans-serif","'Montserrat', sans-serif"];
 var font_size = 120;
 var Color = ["red","green","blue","yellow","white"];
@@ -167,3 +171,7 @@ function randomBack(){
 // 		break;
 // 	}
 // }
+})();
+
+/* Wait for all elements on the page to load */
+window.addEventListener('DOMContentLoaded', app.main.init);
