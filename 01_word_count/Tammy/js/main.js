@@ -2,50 +2,27 @@
 
 var wordCount = function(myText){
 
-var text = document.getElementById("myText").value.split(" ");
+    var text = document.getElementById("myText").value.split(" ");
 
-var wordFreq = {};
+    var wordFreq = {};
 
-for(var i = 0; i < text.length; i++){
-    var thisWord = text[i];
-    if(wordFreq.hasOwnProperty(thisWord)){
-        wordFreq[thisWord]++;
-    }else{
-        wordFreq[thisWord] = 1;
-    }
-}
-////initial attempt trying to write to "analysis" element in HTML
-
-// for(var word in wordFreq){
-// 	    var label = word;
-//      var analysis = wordFreq[word];
-//      console.log(word, wordFreq[word]);
- 
-
-for(var word in wordFreq){
-     ////trying to create an object and push data to object...?
-    var words = [];
-    var wordsFrequency = [];
-     var paragraph = { 
-         label: word,
-         frequency: wordFreq[word]
-    };
-    words.push(paragraph.label);
-    wordsFrequency.push(paragraph.frequency);
-    console.log("word: "+words+"  frequency: "+wordsFrequency);
-
-    ////having trouble writing to HTML "analysis"  
-
-    for (var i = 0; i < text.length; i++){
-
-        document.getElementById("analysis").innerHTML = "Word: " +words + "  Frequency: " + wordsFrequency;
-
+    for(var i = 0; i < text.length; i++){
+        var thisWord = text[i];
+        if(wordFreq.hasOwnProperty(thisWord)){
+            wordFreq[thisWord]++;
+        }else{
+            wordFreq[thisWord] = 1;
         }
-
     }
+
+    console.log(wordFreq);
+
+    // Let's make the list a simple string
+    var htmlContent = "";
+    for(var word in wordFreq){
+        // +=, so we're adding a new line each time
+        htmlContent += word + ": " + wordFreq[word] + "<br/>";  // line break!
+    }
+    document.getElementById("analysis").innerHTML = htmlContent;
 }
-
-// document.getElementById("counter").innerHTML = label + ": " + analysis;
-// }
-
 
