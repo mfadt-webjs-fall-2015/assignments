@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+<!-- 	<link rel="prefetch" href=""> -->
+	<script src="js/jquery-2.1.4.min.js"></script>
+	<meta charset="UTF-8">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<title></title>
+</head>
+<body>
+<div id="container">
+	<h3>Words counting</h3>
+
+	<textarea id="inputText" onkeyup="countWords(this.value)"></textarea>
+	<div id="results"></div>
+</div>
+</body>
+<script type="text/javascript" src="js/script.js"></script>
+</html>
