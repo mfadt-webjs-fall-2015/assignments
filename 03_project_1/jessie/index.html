@@ -1,0 +1,76 @@
+<!DOCTYPE html>  
+<html>
+<head>
+	<title>Web Advanced JavaScript: Fall 2015</title>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="css/normalize.min.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div id="container">
+
+	</div>
+
+	<!-- Template for start page -->
+	<script type="text/html" id="tpl-init">
+		<div id="init">
+			<!--<img src="img/bangbang.gif" />-->
+			<input id="smash-box" type="text" placeholder="HEAD DESK" autofocus/>
+		</div>
+	</script>
+
+	<!-- Template for About page -->
+	<script type="text/html" id="tpl-about">
+		<div class="page" id="about-page">	
+			<h1>About</h1>
+			<p>Here is some info about smashHaiku</p>
+		</div>
+	</script>
+
+	<!-- Template for Loading page -->
+	<script type="text/html" id="tpl-loading">
+		<div id="loading">
+				<img src="img/loader_spin.gif"/>
+		</div>
+	</script>
+
+	<!-- Template for Haiku Page -->
+	<script type="text/html" id="tpl-display">
+		<div class="page">
+			<div id="back">
+				<p>Try again</p>
+			</div>
+			
+			<div id="haiku">
+				<p>
+					<% for(var i=0; i<data.lineOne.length; i++) { %>
+						<%= lineOne[i] %>
+					<% } %>
+				</p>
+				<p>
+					<% for(var i=0; i<data.lineTwo.length; i++) { %>
+						<%= lineTwo[i] %>
+					<% } %>
+				</p>
+				<p>
+					<% for(var i=0; i<data.lineThree.length; i++) { %>
+						<%= lineThree[i] %>
+					<% } %>
+				</p>
+			</div>
+		</div>
+	</script>
+
+	<!-- Template for About page -->
+	<script type="text/html" id="tpl-about">
+		<div class="page" id="about-page">	
+			<h1>About</h1>
+			<p>Here is some info about smashHaiku</p>
+		</div>
+	</script>	
+
+	<script type="text/javascript" src="js/jquery-min.js"></script>
+	<script type="text/javascript" src="js/underscore-min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
