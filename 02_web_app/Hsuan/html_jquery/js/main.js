@@ -17,8 +17,6 @@ function answer(){
 	    alert("News is: " + data.response.docs[1].headline.main );
 	  
 	 });  
-
-
 };  
     
     

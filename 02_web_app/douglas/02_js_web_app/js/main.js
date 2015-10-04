@@ -15,6 +15,7 @@ form.on('submit', function(ev) {
 
 function grabImages(tag, count, access_parameters) {
     var instagramUrl = 'https://api.instagram.com/v1/tags/' + tag + '/media/recent?callback=?&count=' + count;
+    //只有這行有意義
     $.getJSON(instagramUrl, access_parameters, onDataLoaded);
 }
 
