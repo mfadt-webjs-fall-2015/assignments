@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Head Haiku</title>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="css/normalize.min.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div id="container">
+
+	</div>
+
+	<!-- Template for start page -->
+	<script type="text/html" id="tpl-init">
+		<div id="init">
+			<!--<img src="img/bangbang.gif" />-->
+			<input id="smash-box" type="text" placeholder="HEAD DESK" autofocus/>
+		</div>
+	</script>
+
+	<!-- Template for About page -->
+	<script type="text/html" id="tpl-about">
+		<div class="page" id="about-page">	
+			<h1>About</h1>
+			<p>Here is some info about smashHaiku</p>
+		</div>
+	</script>
+
+	<!-- Template for Loading page -->
+	<script type="text/html" id="tpl-loading">
+		<div id="loading">
+				<img src="img/loader_spin.gif"/>
+		</div>
+	</script>
+
+	<!-- Template for Haiku Page -->
+	<script type="text/html" id="tpl-display">
+		<div class="page">
+			<div id="back">
+				<p>smash again</p>
+			</div>
+			<div id="haiku">
+				<ul id="line-one">
+					<% for (var i=0; i<lines[0].length; i++){ %>
+						<li><%= lines[0][i] %></li>
+					<% } %>
+				</ul>
+				<ul id="line-two">
+					<% for (var i=0; i<lines[1].length; i++){ %>
+						<li><%= lines[1][i] %></li>
+					<% } %>
+				</ul>
+				<ul id="line-three">
+					<% for (var i=0; i<lines[2].length; i++){ %>
+						<li><%= lines[2][i] %></li>
+					<% } %>
+				</ul>								
+			</div>
+			
+			
+		</div>
+	</script>
+
+	<!-- Template for About page -->
+	<script type="text/html" id="tpl-about">
+		<div class="page" id="about-page">	
+			<h1>About</h1>
+			<p>Here is some info about smashHaiku</p>
+		</div>
+	</script>	
+
+	<script type="text/javascript" src="js/jquery-min.js"></script>
+	<script type="text/javascript" src="js/underscore-min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
