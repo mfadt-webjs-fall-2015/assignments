@@ -16,6 +16,24 @@ html, body {
 	padding: 0 0 0 0;
 }
 
+#about-button{
+	position: absolute;
+	right: 10vw;
+	bottom: 10vh;
+	background-color: white;
+	padding: .5em;
+	margin: 0;	
+}
+
+#about-button p {
+	margin: 0;
+	padding: 0;
+}
+
+#about-button:hover{
+	cursor: pointer;
+}
+
 #smash-box{
 	width: 100vw;
 	height: 100px;
@@ -48,15 +66,77 @@ html, body {
    color: #1C201F;  
 }
 
-#init img {
-	width: 300px;
+#about-info {
 	position: absolute;
-	top: 3em;
-	left: calc(50vw - 150px);
+	width: 30vw;
+	left: 35vw;
+	top: 40vh;
+	background-color: white;
+	padding: .5em;
+}
+
+#about-info p {
+	margin: .5em 0 .5em 0;
+	padding: 0;
+}
+
+#error-info {
+	position: absolute;
+	width: 37vw;
+	left: 32vw;
+	top: 40vh;
+	background-color: white;
+	padding: .5em;
+}
+
+#error-info p {
+	margin: .5em 0 .5em 0;
+	padding: 0;
 }
 
 #loading {
 	position: absolute;
 	top: calc(50vh - 8px);
 	left: calc(50vw - 8px);
+}
+
+#back{
+	position: absolute;
+	left: 10vw;
+	top: 10vh;
+	background-color: white;
+	padding: .5em;
+	margin: 0;	
+}
+
+#back:hover{
+	cursor: pointer;
+}
+
+#back p {
+	padding: 0;
+	margin: 0;
+}
+
+#haiku {
+	position: absolute;
+	width: 600px;
+	height: 300px;
+	top: calc(40vh);
+	left: calc(50vw - 200px);
+
+}
+
+#haiku ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+#haiku ul li {
+	display: inline;
+}
+
+#feelings {
+	color: white;
 }

@@ -1,79 +1,129 @@
-var app = app || {}; 
+var app = app || {};  
 
 app.main = (function() { 
 
-	var wordlist = [
-	["life", "love", "world", "one", "day", "be", "few", "time", "cheer", "cave", "dew", "ice", "slow", "calm", "tree", "cloud", "nest", "cove", "real", "safe", "sky", "star", "us", "wine", "was", "earth", "wood", "wind", "rest", "skin", "warm", "cream", "the", "of"],
-	["beside", "breathless", "dearest", "deeper", "endless", "morning", "planted", "softly", "sweeter", "after", "butter", "candy", "common", "enjoy", "hello", "penty", "puppy", "city", "finish", "forest", "fragile", "habit", "limit", "petal", "rapid", "relish", "river", "paper", "pony", "silent", "silence", "solo", "graceful", "lovely", "windy", "summer", "winter", "autumn" ,"spring", "whisper", "wonder", "mimic", "vigor", "flower", "forest", "moment", "unite"],
-	["adventure", "beloved", "energy", "essential", "genuine", "perfection", "lavender", "lasagne", "poetry", "unconscious", "realize", "wonderful"],
-	["ordinary", "capacity", "immunity", "variation", "invisible", "geometry", "peripheral", "relaxation", "eternity", "silhouette", "community", "infinity", "constellation", "absolution", "original", "awareness"],
-	["alliteration", "electriciy", "imagination", "insignificant", "individual", "generosity", "evaporation", "velociraptor", "hippopotamus", "extraordinary", "infatuation", "refridgerator"]
-	];
+	var wordlist;
+	
+	var loadWords = function(){
+		$.getJSON("js/words.json", function(json){
+			wordlist = json;
+		});
+	}
 
-	var whichWord = function(num){
-		//picking random word from syllable list
-		// console.log(num);
+	var attachBackEvent = function(){
+		$('#back').click(function(){
+			lineOne = [];
+			lineTwo = [];
+			lineThree = [];
+			init();
+		});
+	}
 
-		//using wordlist array
-		var listWords = wordlist[num];
-
-		//reading JSON file, NOT WORKING
-		// $.getJSON("js/words.json", function(json){
-		// 	console.log('Data received.');
-		// 	console.log(json);
-
-		// 	var listwords = json.wordlist[num];
-		// });
-
+	var whichWord = function(type, index){
+		//picking random word from selected word list
+		var listWords = wordlist[type][index];
 		var rand = Math.floor(Math.random() * listWords.length);
 		var word = listWords[rand];
-		return word;
+		return word;			
 	}
 
 	var alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 
 	var syllables = 0;
 
-	var howManySyllables = function(_letter){
-		//finding how many syllables for the letter
+	var nounSyllables = function(_letter){
+		//finding how many syllables to use for nouns
 		for (var i = 0; i < alphabet.length; i++) {
 			if (i <= 4 && _letter == alphabet[i]){
-				syllablesLeft -= 1;
-				return whichWord(0);
+				numSyl = 1;
+				return whichWord('n', 0);
 			} else if (i > 4 && i <= 9 && _letter == alphabet[i]) {
-				syllablesLeft -= 2;
-				return whichWord(1);
+				numSyl = 2;
+				return whichWord('n', 1);
 			} else if (i > 9 && i <= 14 && _letter == alphabet[i]) {
-				syllablesLeft -= 3;
-				return whichWord(2);
+				numSyl = 3;
+				return whichWord('n', 2);
 			} else if (i > 14 && i <= 19 && _letter == alphabet[i]) {
-				syllablesLeft -= 4;
-				return whichWord(3);
+				numSyl = 4;
+				return whichWord('n', 3);
 			} else if (i > 19 && i <= 26 && _letter == alphabet[i]) {
-				syllablesLeft -= 5;
-				return whichWord(4);
+				numSyl = 5;
+				return whichWord('n', 4);
 			}
 		}
 	}
 
-
-	var getWords = function(_letter, _numSyll, _array){
-
-		syllablesLeft = _numSyll;
-		_array.push(howManySyllables(_letter));
-		console.log(syllablesLeft + "syllables left");
-
-		if (syllablesLeft >= 1) {
-			var r = Math.floor(Math.random() * syllablesLeft);
-			// console.log(r);
-			_array.push(whichWord(r));
-			syllablesLeft -= (r+1);
-			console.log(syllablesLeft + " syllables left");
-			//console.log("added word to " + _array);
-		} else {
-			console.log("line done");
+	var adjSyllables = function(_letter){
+		//finding how many syllables to use for adjs
+		for (var i = 0; i < alphabet.length; i++) {
+			if (i <= 13 && _letter == alphabet[i]){
+				numSyl = 1;
+				return whichWord('adj', 0);
+			} else if (i > 13 && i <= 26 && _letter == alphabet[i]) {
+				numSyl = 2;
+				return whichWord('adj', 1);
+			}
 		}
-		
+	}
+
+	var numSyl;
+	var makeLineOne = function(_input){
+		console.log("one start");
+		syllablesLeft = 5;
+		//find adjective
+		var adj = adjSyllables(_input[0])
+		lineOne.push(adj);
+		syllablesLeft -= numSyl;
+		//find noun
+		var noun = nounSyllables(_input[1]);
+		lineOne.push(noun);
+		syllablesLeft -= numSyl;
+		//find second noun if necessary
+		if (syllablesLeft > 0) {
+			var anotherNoun = whichWord('n', syllablesLeft-1);
+			lineOne.push(anotherNoun);
+		}
+		console.log(lineOne);
+	}
+
+	var makeLineTwo = function(_input){
+		console.log("two start")
+		syllablesLeft = 5;
+		//find adverb
+		var adv = whichWord('adv', 0)
+		lineTwo.push(adv);
+		//find noun
+		var noun = nounSyllables(_input[3]);
+		lineTwo.push(noun);
+		syllablesLeft -= numSyl;
+		console.log(syllablesLeft + " left");
+		//find adj
+		var adj = adjSyllables(_input[4]);
+		lineTwo.push(adj);
+		syllablesLeft -= numSyl;
+		//find another noun if necessary
+		if (syllablesLeft > 0) {
+			var anotherNoun = whichWord('n', syllablesLeft-1);
+			lineTwo.push(anotherNoun);
+		}
+		console.log(lineTwo);
+	}
+
+	var makeLineThree = function(_input){
+		console.log("three start");
+		//conj, adj, noun
+		syllablesLeft = 4;
+		//conj
+		var conj = whichWord('conj', 0)
+		lineThree.push(conj);
+		//adj
+		var adj = adjSyllables(_input[5])
+		lineThree.push(adj);
+		syllablesLeft -= numSyl;
+		//noun
+		var anotherNoun = whichWord('n', syllablesLeft-1);
+		lineThree.push(anotherNoun);
+		console.log(lineThree);
 	}
 
 	var lineOne = [];
@@ -81,86 +131,79 @@ app.main = (function() {
 	var lineThree = [];
 	var syllablesLeft;
 
+	var feelingsArray = [
+		"what a beautiful haiku",
+		"wow, I feel so much better",
+		"doesn't that help now?",
+		"is that pure poetry, or do I have a concussion now",
+		"wow, just wow.",
+		"did you shed a single tear?",
+		"i hope your face is ok",
+		"*ring ring* hello poet laureate speaking",
+		"nothing like poetry to sooth the soul",
+		"it's so touching",
+		"you made this poetry with your face",
+		"if you need another, i understand"
+	]
+
 	var makeHaiku = function(_input){
-
-		console.log("making haiku");
-		getWords(_input[0], 5, lineOne);
-		console.log("line one : " + lineOne);
-		getWords(_input[1], 7, lineTwo);
-		console.log("line two : " + lineTwo);
-		getWords(_input[2], 5, lineThree);
-		console.log("line three : " + lineThree);
-
-		render('tpl-display', {lines: [lineOne, lineTwo, lineThree]});
-
+		makeLineOne(_input);
+		makeLineTwo(_input);
+		makeLineThree(_input);
+		var rand = Math.floor(Math.random() * feelingsArray.length);
+		render('tpl-display', {lines: [lineOne, lineTwo, lineThree], feelingsText: feelingsArray[rand]});
+		attachBackEvent();
 	}
 
-	var loading = function(){
-
+	var loading = function(_input){
 		render('tpl-loading');
-		window.setTimeout(function() { makeHaiku(cleanedUp); }, 2000);
-	
+		window.setTimeout(function() { makeHaiku(_input); }, 2000);
 	}
 
 
-	var cleanup = function(_input){
-
-		console.log("input: " + _input);
-
-		cleanedUp = _input.replace(/[^a-z]/ig, "");
-		console.log("cleaned up: " + cleanedUp);
-
-		checkInput(cleanedUp);
-
+	var cleanUp = function(_input){
+		var cleanedUp = _input.replace(/[^a-z]/ig, "");
+		return cleanedUp;
 	}
 
-	var listen = function(){
-
-		console.log("listening for keypress");
-		
+	var debounce;
+	var attachEvents = function(){
+		$('#about-button').click(function(){
+			render('tpl-about');
+			attachBackEvent();
+		})
 		$('#smash-box').keyup(function() {
-			console.log("key was pressed");
-   			cleanup($(this).val());
+		    clearTimeout(debounce);
+		    debounce = setTimeout(checkInput, 500);
 		});
 	}
 
-	var cleanedUp = "";
-
 	var checkInput = function(){
-
-		console.log("checking length of input");
-		
-		if (cleanedUp.length < 5) {
-			console.log("type something");
-			listen();
+		if (cleanUp($('#smash-box').val()).length < 6) {
+			render('tpl-error');
+			attachBackEvent();
 		} else {
-			console.log("good");
-			loading();
+			loading(cleanUp($('#smash-box').val()));
 		}
 	}
 
 	var render = function(div, data){ 
-		
 		var htmlTemplate = $('#' + div).html();
 		var compiled = _.template(htmlTemplate);
 		var compiledHtml = compiled(data);
 		$('#container').html(compiledHtml);
-	
 	}
 
 	var init = function(){
-
-		console.log('Initializing app.');
 		render('tpl-init');
-		checkInput();
-	
+		$('#smash-box').focus();
+		loadWords();
+		attachEvents();
 	};
 
 	return {
-
 		render: render,
 		init: init
-
 	};
 })();
 
