@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Web Advanced JavaScript: Fall 2015</title>
+	<meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link href='https://fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/normalize.min.css">
+	<link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery-min.js"></script>	
+<script src="responsivevoice.js"></script>
+<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+<script src='https://code.responsivevoice.org/responsivevoice.js'></script>
+	
+
+<!-- <div id="everything"/> -->
+<!-- <div id="gradient" /> -->
+<h1>PURPLE PRICKLY PICKLE PUPPET PUPPY
+</h1>
+<h4 id="firstTitle">TONGUE TWISTER</h4>
+<h4 id="secondTitle" >TYPE PLAY AND LISTEN</h4>
+<textarea  id="wordsTxtAra" cols="60" rows="8">Purple prickly pickle puppet puppy
+Purple prickly pickle puppet puppy
+Purple prickly pickle puppet puppy
+Purple prickly pickle puppet puppy
+Purple prickly pickle puppet puppy
+Purple prickly pickle puppet puppy
+Purple prickly pickle puppet puppy
+Purple prickly pickle puppet puppy
+Purple prickly pickle puppet puppy
+Purple prickly pickle puppet puppy
+Purple prickly pickle puppet puppy
+Purple prickly pickle puppet puppy
+Purple prickly pickle puppet puppy
+Purple prickly pickle puppet puppy
+Purple prickly pickle puppet puppy
+Purple prickly pickle puppet puppy
+Purple prickly pickle puppet puppy
+Purple prickly pickle puppet puppy
+Purple prickly pickle puppet puppy
+Purple prickly pickle puppet puppy
+
+</textarea><br />
+
+<!-- <select id="voiceselection"></select>  -->
+
+<input 
+  onclick="responsiveVoice.speak($('#wordsTxtAra').val(),$('#voiceselection').val());" 
+  type="button" 
+  value="Play"/>
+
+
+<input type="button" id="countWordsBtn" value="Count Words" />
+
+<div id="wordFreq"></div>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+<!-- resourcessource:
+
+<! http://responsivevoice.org/text-to-speech-sdk/text-to-speech-widget/ -->
+ <!--  http://web.cs.iastate.edu/~cs596/notes/perl_string_manipulations.html -->
+<!-- http://stackoverflow.com/questions/18679576/counting-words-in-string --> 
+<!-- http://jietovip.com/questions/2022818/counting-words-in-string -->

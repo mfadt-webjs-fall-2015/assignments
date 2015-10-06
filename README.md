@@ -6,4 +6,5 @@
 
 PGTE 5505, Section A, CRN 6007  
 Fall 2015---
-This is the repository where students should submit their assignments to. Please create a folder with your New School handle (the email minus @newschool.edu) and push your submission to it.
+This is the repository where students should submit their assignments to.  
+Please create a folder with your New School handle (the email minus @newschool.edu) and push your submission to it.

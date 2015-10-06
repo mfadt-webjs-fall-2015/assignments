@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Web Advanced JavaScript: Fall 2015</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/normalize.min.css">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Montserrat+Subrayada' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div class="site-wrapper">
+      <div class="site-wrapper-inner">
+        <div class="cover-container">
+          <div class="inner-cover">
+	            <h1 class="cover-heading">SEVEN WORD STORY</h1>
+	            <section id="input" class="center-block form-group inner">
+					<label for="textarea" class="center-block">Seven words. No more, no less.</label>
+					<textarea id="storyInput" class="form-control"></textarea>
+					<div id="errorMessage"></div>
+					<button id="submit" class="btn btn-lg btn-default">SUBMIT</button>
+				</section>
+				<section id="stories" class="center-block form-group inner">
+					<h3 id="storiesHeader" class="show">PUBLISHED STORIES</h3>
+					<div id="publishedStories">
+						<p>You haven't published any stories yet.</p>
+					</div>
+				</section>
+				<section id="wordCount"  class="center-block form-group inner">
+					<button id="wordCountButton" class="btn btn-lg btn-default">CALCULATE WORD FREQUENCY</button>
+				</section>
+          </div>
+        </div>
+      </div>
+    </div>
+	<script type="text/javascript" src="js/jquery-min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>

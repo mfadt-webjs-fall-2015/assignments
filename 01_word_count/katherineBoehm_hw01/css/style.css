@@ -1,0 +1,112 @@
+h1  {
+    color:red;
+   
+    font-family: 'Lato', sans-serif;
+    font-weight: 100;
+    padding-left: 30vh; 
+    padding-top: 10vh;
+
+}
+
+#firstTitle  {
+    color:red;
+    font-family: 'Lato', sans-serif;
+    font-weight:100;
+    padding-left: 30vh; 
+
+}
+
+#secondTitle {
+    color:red;
+    font-family: 'Lato', sans-serif;
+    font-weight:100;
+    padding-left: 30vh; 
+    margin-top: -3vh;
+}
+
+table {
+    border-collapse: collapse;
+    table-layout: fixed;
+    width: 200px;
+    /*font-family: monospace;*/
+    font-family: 'Lato', sans-serif;
+    font-weight: 100;
+    color:red;
+}
+
+
+thead {
+    border-bottom: red 3px double;;
+}
+table, td, th {
+    border: red 1px solid;
+}
+td, th {
+    padding: 2px;
+    width: 100px;
+    overflow: hidden;
+}
+
+textarea {
+    margin: 4px;
+    padding: 2px;
+    border-color: red;
+    border-width: 1px;
+    background: white;
+    color:red;
+    font-family: 'Lato', sans-serif;
+    font-weight: 100;
+    margin-left: 70vh;
+
+}
+
+input[type="button"], table {
+
+    margin: 4px;
+    padding: 2px;
+    border-color: red;
+    border-width: 1px;
+    background: white;
+    color:red;
+    font-family: 'Lato', sans-serif;
+    font-weight: 100;
+    margin-left: 70vh;
+    margin-top: vh;
+    
+}
+
+#countWordsBtn{
+    margin: 4px;
+    padding: 2px;
+    border-color: red;
+    border-width: 1px;
+    background: white;
+    color:red;
+    font-family: 'Lato', sans-serif;
+    font-weight: 100;
+
+
+}
+
+#wordsTxtAra{
+    background:white;
+    color: red;
+    position: relative;
+
+}
+
+textarea {
+    font-family: 'Lato', sans-serif;
+    font-weight: 100;
+   /* border: 100px;*/
+   border-style: solid;
+   border-width: 1px;
+    border-color: red;
+
+}
+
+
+
+
+
+

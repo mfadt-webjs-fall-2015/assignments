@@ -1,0 +1,61 @@
+<!-- Umi Syam
+Assignment 1 - Word Count
+Web Advanced Javascript - Fall 2015
+ -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Week 1 HW: Word Count</title>
+	<meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+	<link rel="stylesheet" href="css/normalize.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link href='https://fonts.googleapis.com/css?family=Bitter:400,700' rel='stylesheet' type='text/css'>
+</head>
+<body>
+	<script type="text/javascript" src="js/jquery-min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+
+
+	<section id="container">
+		<header>
+			<h1>Copy-paste something long here:</h1>
+		</header>
+
+		<div id="input">
+	        <textarea id='text'></textarea>
+	    </div>
+	    
+	    <div id="result">
+	    	<div id="left">
+	    		# Words: <h1 id="wordCount">0</h1>
+	    	</div>
+	    	<div id="middle">
+	    		# Both Words &amp; Non-Word Characters: <br/>
+	    		<span>(example: !@#$%^&amp;*()-+[];'") </span>
+	    		<h1 class="twoLines" id="wordPlusPlusCount">0</h1>
+	    	</div>
+	    	<div id="right">
+	    		# ALL Characters: <br/>
+	    		<span>(plus trails)</span>
+	    		<h1 class="twoLines" id="allChars">0</h1>
+	    	</div>
+
+	    	<div id="btn">
+	    		<button id="countBtn">Show Occurrence</button>
+	    	</div>
+
+	        <div id="wordList">
+		        <ul id="eachWord">
+
+		        </ul>
+	        </div>
+	    </div>
+	</section>
+	
+
+</body>
+</html>

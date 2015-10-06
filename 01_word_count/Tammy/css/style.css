@@ -1,0 +1,115 @@
+/* your style begins here */
+body {
+	background-color: #333338;
+	border-width: 25px;
+	border-color: #BBAE93;
+
+
+}
+
+#bodyborder{
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	border-width: 25px;
+	border-color: #BBAE93;
+
+
+}
+#title{
+	margin-top: 30px;
+	margin-bottom: 30px;
+	color: #17A768;
+	font-size: 72px;
+
+}
+
+#analysis {
+
+	color: #17A768;
+	font-size: 25px;
+
+}
+
+#blurb {
+
+	margin-top: 30px;
+	color: #61626B;
+	font-size: 15px;
+
+}
+
+p {
+	margin-top: 60px;
+	margin-bottom: 20px;	
+	text-align: center;
+
+
+}
+#inputbox {
+
+	margin: 0 auto;
+	margin-top: 20px;
+	text-align: center;
+	/*background-color: #F1601D;*/
+
+}
+textarea{
+
+	padding: 50px;
+	border-width: 25px;
+	border-color: #F1AD1D;
+	background-color: #333338;
+	color: #61626B;
+	font-size: 25px;
+	height: 200px;
+	width: 700px;	
+}
+
+textarea:hover{
+	outline: none !important;
+	border-width: 25px;
+	border-color: #F1601D;
+
+}
+
+
+textarea:focus{
+	outline: none !important;
+	border-width: 25px;
+	border-color: #F1601D;
+
+}
+
+#buttondiv{
+
+	width: 100%;
+	margin-top: 10px;
+	text-align: center;
+}
+
+button {
+
+	height: 70px;
+	width: 200px;
+	border: none;
+	margin: 0 auto;
+	background-color:#F1601D; 
+	font-size: 25px;
+	color: #333338;
+	/*border-radius: 5px;*/
+
+
+}
+
+button:hover{
+
+	background-color:#17A768;
+
+}
+
+button:focus{
+
+	outline: none;
+}

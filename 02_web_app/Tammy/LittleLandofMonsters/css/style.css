@@ -1,0 +1,421 @@
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-size: 100%;
+    font-family: 'Dawning of a New Day', cursive;
+    font-size: 20pt;
+
+}
+
+#WinterBackground{
+	display: none;
+	z-index: 0;
+
+}
+
+#MonsterDiv{
+	position: absolute;
+	bottom: 100px;
+	left: 200px;
+	height: 100px;
+	width: 150px;
+	background-color:white;
+	transform: rotate(50deg);
+	opacity: 0;
+	z-index: 6;
+}
+
+#YellowDiv{
+	position: absolute;
+	bottom: 150px;
+	right: 400px;
+	height: 80px;
+	width: 100px;
+	background-color:white;
+	opacity: 0;
+	z-index: 6;
+}
+
+#Monster1 {
+
+	position: absolute;
+	bottom: 10px;
+	left: 150px;
+	width: 200px;
+	transform: rotate(50deg);
+	z-index: 1;
+
+}
+
+#Monster1Winter {
+
+	position: absolute;
+	bottom: 20px;
+	left: 170px;
+	width: 160px;
+	z-index: 1;
+	opacity: 0;
+	transform: rotate(-8deg);
+
+}
+
+#Yellow {
+
+	position: absolute;
+	bottom: 150px;
+	right: 400px;
+	width: 100px;
+	z-index: 1;
+
+}
+#YellowWinter {
+
+	position: absolute;
+	bottom: 150px;
+	right: 400px;
+	width: 100px;
+	z-index: 1;
+	opacity: 0;
+
+}
+
+#Rock1 {
+
+	position:fixed;
+    bottom:0px;
+    z-index: 3;
+    
+}
+
+#Rock1Winter {
+
+	position:fixed;
+    bottom:0px;
+    z-index: 2;
+    opacity: 0;
+    
+}
+
+
+#Exclaim{
+
+	position: fixed;
+	bottom: 200px;
+	left: 300px;
+}
+
+
+#Rock2 {
+
+	position:fixed;
+    bottom:0px;
+    right:0px;
+    z-index: 1;
+    
+}
+
+#Rock2Winter {
+
+	position:fixed;
+    bottom:0px;
+    right:0px;
+    z-index: 1;
+    opacity: 0;
+    
+}
+
+#Arch {
+
+	position:fixed;
+    bottom:0px;
+    right: 150px;
+    z-index: 3;
+    
+}
+
+#ArchWinter {
+
+	position:fixed;
+    bottom:0px;
+    right: 150px;
+    z-index: 2;
+    opacity: 0;
+}
+
+
+
+#VineParent{
+
+	position:fixed;
+	top:0px;
+  	left: 200px;
+	height: 20px;
+	width: 20px;
+	animation-name: rotate;
+    animation-duration: 8000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+   	transform-origin: top left;
+    
+}
+
+#Vine2{
+	position: fixed;
+	top: 195px;
+	right: 610px;
+	animation-name: swingme;
+	animation-duration: 9000ms;
+	animation-iteration-count: infinite;
+	animation-timing-function: ease;
+	transform-origin: top right;
+	z-index: 3;
+
+
+}
+
+#Vine2Winter{
+	position: fixed;
+	top: 195px;
+	right: 610px;
+	animation-name: swingme;
+	animation-duration: 9000ms;
+	animation-iteration-count: infinite;
+	animation-timing-function: ease;
+	transform-origin: top right;
+	z-index: 4;
+	opacity: 0;
+
+
+}
+
+ @keyframes rotate {
+
+ 	50%  {transform:rotate(20deg);}
+   /* to {transform:rotate(30deg);}
+*/
+ }
+
+ @keyframes swingme {
+
+ 	50%  {transform:rotate(-20deg);}
+   /* to {transform:rotate(30deg);}
+*/
+ }
+
+ #Loop{
+
+ 	position:fixed;
+ 	top:0;
+ 	right: 300px;
+ 	z-index: 1;
+
+ }
+
+  #LoopWinter{
+
+ 	position:fixed;
+ 	top:0;
+ 	right: 300px;
+ 	z-index: 1;
+ 	opacity: 0;
+
+ }
+
+ #Loop2{
+
+ 	position:fixed;
+ 	top:0;
+ 	right:0px;
+ 	width: 500px;
+ 	z-index: 1;
+ 	 }
+
+ #Loop3{
+ 	position: fixed;
+ 	top:0;
+ 	left: 0;
+ 	z-index: 1;
+ }
+
+#Flower {
+
+	position: fixed;
+	top: 300px;
+	left: 195px;
+}
+
+
+#Flower2 {
+
+	position: fixed;
+	top: 355px;
+	left: 177px;
+}
+
+
+
+#Ray1{
+	position: fixed;
+	top: 0;
+	left: 550px;
+	height: 100%;
+	overflow: hidden;
+	opacity: 0.5;
+	z-index: 1;
+}
+#Ray1Winter{
+	position: fixed;
+	top: 0;
+	left: 550px;
+	height: 100%;
+	overflow: hidden;
+	opacity: 0;
+	z-index: 1;
+}
+
+#Ray2{
+	position: fixed;
+	top: 0;
+	left: 400px;
+	height: 100%;
+	opacity: 0.7;
+	overflow: hidden;
+	z-index: 1;
+}
+
+
+#Ray2Winter{
+	position: fixed;
+	top: 0;
+	left: 400px;
+	height: 100%;
+	opacity: 0;
+	overflow: hidden;
+	z-index: 1;
+}
+
+#Ray3{
+	position: fixed;
+	top: 0;
+	left: 1030px;
+	height: 100%;
+	opacity: 0.7;
+	z-index: 1;
+	overflow: hidden;
+}
+
+
+#Ray3Winter{
+	position: fixed;
+	top: 0;
+	left: 1030px;
+	height: 100%;
+	opacity: 0;
+	z-index: 1;
+	overflow: hidden;
+}
+
+.snowball {
+    top:0px;
+    left:0px;
+    position:absolute;
+    z-index:200;
+    width: 31px;
+    height: 30px;
+    background-image: url('Snow.png');
+}
+
+#site {
+	top: 0px;
+    width:100%;
+    height:1000px;
+    margin:0 auto;
+    position:fixed;
+    overflow:hidden;
+}
+
+#topBar {
+	position: fixed;
+	top: 0px;
+	width: 100%;
+	height:20px;
+	color: white;
+	opacity: 0.5;
+	text-align: center;
+	z-index: 5;
+
+}
+
+#Mushrooms{
+	position: fixed;
+	bottom: 0px;
+	right: 750px;
+	z-index: 4;
+
+}
+
+#MushroomsWinter{
+	position: fixed;
+	bottom: 0px;
+	right: 750px;
+	z-index: 4;
+	opacity:0;
+
+}
+#Mushrooms2{
+	position: fixed;
+	bottom: 110px;
+	right: 380px;
+	z-index: 2;
+
+}
+
+#Mushrooms3{
+	position: fixed;
+	bottom: 88px;
+	right: 350px;
+	z-index: 2;
+
+}
+
+#soundBubble{
+
+	position: fixed;
+	top: 100px;
+	left: 500px;
+	width: 80px;
+	z-index: 5;
+	opacity: 0.1;
+}
+
+#soundBubble2{
+
+	position: fixed;
+	top: 300px;
+	left: 800px;
+	width: 50px;
+	z-index: 5;
+	opacity: 0.1;
+}
+
+#soundBubble3{
+
+	position: fixed;
+	top: 500px;
+	left: 100px;
+	width: 60px;
+	z-index: 5;
+	opacity: 0.1;
+}
+
+#soundBubble4{
+
+	position: fixed;
+	top: 200px;
+	right: 200px;
+	width: 50px;
+	z-index: 5;
+	opacity: 0.1;
+}

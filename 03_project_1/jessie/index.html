@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Head Haiku</title>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="css/normalize.min.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div id="container">
+
+	</div>
+
+	<!-- Template for start page -->
+	<script type="text/html" id="tpl-init">
+		<div id="about-button"><p>?</p></div>
+		<div id="init">
+			<input id="smash-box" type="text" placeholder="HEAD DESK" autofocus/>
+		</div>
+	</script>
+
+	<!-- Template for About page -->
+	<script type="text/html" id="tpl-about">
+		<div class="page" id="about-page">	
+			<div id="about-info">
+				<p>head desk haiku</p>
+				<p>feeling frustrated? channel those feelings into a poem inspired by the velocity by which your face hits the keyboard</p>
+				<p>by jessie contour</p>
+			</div>
+			<div id="back">
+				<p>back</p>
+			</div>
+		</div>
+	</script>
+
+	<!-- Template for error page -->
+	<script type="text/html" id="tpl-error">
+		<div class="page" id="error-page">	
+			<div id="error-info">
+				<p>head haiku does not sense a significant enough level of frustration to generate some poetry</p>
+				<p>how about you get back in there and really show us how you feel</p>
+			</div>
+			<div id="back">
+				<p>back</p>
+			</div>
+		</div>
+	</script>
+
+	<!-- Template for Loading page -->
+	<script type="text/html" id="tpl-loading">
+		<div id="loading">
+				<img src="img/loader_spin.gif"/>
+		</div>
+	</script>
+
+	<!-- Template for Haiku Page -->
+	<script type="text/html" id="tpl-display">
+		<div class="page">
+			<div id="back">
+				<p>smash again</p>
+			</div>
+			<div id="haiku">
+				<ul id="line-one">
+					<% for (var i=0; i<lines[0].length; i++){ %>
+						<li><%= lines[0][i] %></li>
+					<% } %>
+				</ul>
+				<ul id="line-two">
+					<% for (var i=0; i<lines[1].length; i++){ %>
+						<li><%= lines[1][i] %></li>
+					<% } %>
+				</ul>
+				<ul id="line-three">
+					<% for (var i=0; i<lines[2].length; i++){ %>
+						<li><%= lines[2][i] %></li>
+					<% } %>
+				</ul>
+			<h2 id="feelings"><%= feelingsText %></h2>
+			</div>
+		</div>
+	</script>
+
+	<script type="text/javascript" src="js/jquery-min.js"></script>
+	<script type="text/javascript" src="js/underscore-min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
