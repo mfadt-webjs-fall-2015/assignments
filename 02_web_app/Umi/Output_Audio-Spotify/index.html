@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Explore Music using Spotify Web API</title>
+    <link type="text/css" href="script/normalize.css" rel="stylesheet" />
+    <link type="text/css" href="script/styles.css" rel="stylesheet" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="script/handlebars.min.js"></script>
+    
+  </head>
+
+<body>
+    <header>
+    <h2>Explore Music with Spotify Web API</h2>
+        <form id="search-form">
+            <!-- toggle between default text & remove the default value when the searchbox is onFocus-->
+            <input type="text" id="query" class="form-control" value="Enter artist, album, or track name" onFocus="if(this.value == 'Enter artist, album, or track name') {this.value = '';}" onBlur="if (this.value == '') {this.value = 'Enter artist, album, or track name';}"/>
+            <input type="submit" id="search" class="btn btn-primary" value="Search" />
+        </form>
+    </header>
+    <div class="container">
+        <div id="artistPanel"></div>
+        <div id="results"></div>
+    </div>
+    
+    <!--I'm using Handlebars library to make template easily-->
+    <script id="album-template" type="text/x-handlebars-template">
+        {{#each albums.items}}
+        <div style="background-image:url({{images.0.url}})" data-album-id="{{id}}" class="cover">
+            <div id="albumName">
+                {{name}}
+                <br/>
+                <a href="{{external_urls.spotify}}" target="_blank"><img style="float:right" src="images/play_on_spotify-black.png" width="100"></a>
+            </div>
+
+        </div>
+        {{/each}}
+    </script>
+
+    <footer>
+    	Powered by Spotify Web API. Umi Syam - MFADT Parsons School for Design.
+    </footer>
+</body>
+
+<script src="script/script.js"></script>
+</html>
