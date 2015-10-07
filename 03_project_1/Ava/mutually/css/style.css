@@ -1,0 +1,184 @@
+/* your style begins here */
+
+.btn-default,
+.btn-default:hover,
+.btn-default:focus {
+  color: #21F0C3;
+  text-shadow: none; /* Prevent inheritence from `body` */
+  background-color: #fff;
+  border: 1px solid #fff;
+  font-family: Montserrat;
+  margin-top: 5%;
+}
+
+.form-control,
+.form-control:hover,
+.form-control:focus {
+	border: 0px;
+	font-size: 5em;
+	outline: 0px !important;
+	background-color: #21F0C3;
+    -webkit-appearance: none;
+    border-color: #21F0C3;
+    -webkit-box-shadow: #21F0C3;
+    box-shadow: #21F0C3;
+    color: #fff;
+}
+
+
+html,
+body {
+	background-color: #21F0C3;
+  height: 100%;
+  font-family: Montserrat;
+}
+
+body {
+  color: #fff;
+  text-align: center;
+}
+
+a {
+  color: #fff;
+}
+
+a:hover {
+  color: #FF5146;
+}
+
+::-webkit-input-placeholder {
+   color: #fff;
+   opacity: 0.5;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+    color: #fff;
+   opacity: 0.5;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+    color: #fff;
+   opacity: 0.5;
+}
+
+:-ms-input-placeholder {  
+    color: #fff;
+   opacity: 0.5;
+}
+
+.cover-heading {
+	font-size: 5em;
+	padding-bottom: 5%;
+  text-decoration: underline;
+}
+
+textarea {
+	margin-left: -5px;
+	max-height: 110px;
+  outline: none;
+  border: none !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+.big-text {
+	font-size: 5em;
+}
+
+#username {
+  padding-bottom: 5%;
+}
+
+.hide {
+  display: none;
+}
+
+#pals {
+  padding-top: 2.5%;
+  padding-bottom: 5%;
+}
+
+#pal-count {
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+
+.pal-entry {
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+.pic-wrapper {
+  margin-top: 4%;
+}
+
+.prof-pic-size {
+  width: 150px;
+}
+
+.site-wrapper {
+  display: table;
+  width: 100%;
+  height: 100%; /* For at least Firefox */
+  min-height: 100%;
+  -webkit-box-shadow: inset 0 0 350px rgba(45,255,249,.9);
+          box-shadow: inset 0 0 350px rgba(45,255,249,.9);
+}
+.site-wrapper-inner {
+  display: table-cell;
+  vertical-align: top;
+}
+.cover-container {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* Padding for spacing */
+/*.inner {
+  padding: 10px;
+}*/
+
+/*
+ * Cover
+ */
+
+.cover {
+  padding: 0 10px;
+}
+.cover .btn-lg {
+  padding: 10px 20px;
+}
+
+/*
+ * Affix and center
+ */
+
+@media (min-width: 768px) {
+  .masthead {
+    position: fixed;
+    top: 0;
+  }
+  .mastfoot {
+    position: fixed;
+    bottom: 0;
+  }
+
+  .site-wrapper-inner {
+    vertical-align: middle;
+  }
+
+  .masthead,
+  .mastfoot,
+  .cover-container {
+    width: 100%; 
+  }
+}
+
+@media (min-width: 992px) {
+  .masthead,
+  .mastfoot,
+  .cover-container {
+    width: 700px;
+  }
+}
