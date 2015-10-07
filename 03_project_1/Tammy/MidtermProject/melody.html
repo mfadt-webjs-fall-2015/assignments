@@ -1,0 +1,110 @@
+<!--Javascript Project & Thesis Prototype
+
+An interactive musical environment visualizing the structural relationships between melody and harmony. 
+The colored steps in melody correspond to its harmonic pillars underground. On the "melodic surface," the music played is what one would expect to hear from the musical score, and in the "underground harmony", the music is stripped down to its fundamental chords, which is the essence of the music.
+Some color coordination is involved. 
+
+Click on the blue monster to travel between the "melodic surface" and the "underground harmony".
+
+There are two states to the environment apart from its melodic/harmonic levels: one in major (which plays a Mozart Sonata), and one in minor(Ravel Valse), which are triggered by the current weather conditions.
+These can be overridden by the weather icons on the left and right side of the screens.
+ -->
+
+ <!--MELODIC SURFACE-->
+<head>
+		<title>Little Land of Music: Melody</title>
+		<meta charset="utf-8" />
+	    <meta name="format-detection" content="telephone=no">
+	    <meta name="msapplication-tap-highlight" content="no">
+	    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+	    <link rel="icon" type="img/ico" href="img/favicon.ico">
+	    <link href='https://fonts.googleapis.com/css?family=Dawning+of+a+New+Day' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="css/normalize.min.css">
+		<link rel="stylesheet" href="css/melodystyle.css">
+	</head>
+<body background="img/Mozart/BG-melody.png">
+
+	<audio preload="auto" id="mozart-1" > <source src="sounds/Mozart_TL_1.mp3"> </audio>
+	<audio preload="auto" id="mozart-2" > <source src="sounds/Mozart_TL_2.mp3"> </audio>
+	<audio preload="auto" id="mozart-3" > <source src="sounds/Mozart_TL_3.mp3"> </audio>
+	<audio preload="auto" id="mozart-4" > <source src="sounds/Mozart_TL_4.mp3"> </audio>
+	<audio preload="auto" id="mozart-5" > <source src="sounds/Mozart_TL_5.mp3"> </audio>
+	<audio preload="auto" id="mozart-6" > <source src="sounds/Mozart_TL_6.mp3"> </audio>
+	<audio preload="auto" id="mozart-7" > <source src="sounds/Mozart_TL_7.mp3"> </audio>
+
+	<audio preload="auto" id="ravel-1" > <source src="sounds/Ravel_TL_1.mp3"> </audio>
+	<audio preload="auto" id="ravel-2" > <source src="sounds/Ravel_TL_2.mp3"> </audio>
+	<audio preload="auto" id="ravel-3" > <source src="sounds/Ravel_TL_3.mp3"> </audio>
+	<audio preload="auto" id="ravel-4" > <source src="sounds/Ravel_TL_4.mp3"> </audio>
+	<audio preload="auto" id="ravel-5" > <source src="sounds/Ravel_TL_5.mp3"> </audio>
+	<audio preload="auto" id="ravel-6" > <source src="sounds/Ravel_TL_6.mp3"> </audio>
+	<audio preload="auto" id="ravel-7" > <source src="sounds/Ravel_TL_7.mp3"> </audio>
+	<audio preload="auto" id="ravel-8" > <source src="sounds/Ravel_TL_8.mp3"> </audio>
+	<audio preload="auto" id="ravel-9" > <source src="sounds/Ravel_TL_9.mp3"> </audio>
+
+	<div id="sunnybutton"><img id="weather-change"src="img/Sunny.png"/></div>
+	<div id="rainybutton"><img id="weather-change"src="img/Rain.png"/></div>
+	<a href="harmony.html"><div id="monsterdiv" ></div></a>
+
+	<img id="hands" src="img/Hands.png"/>
+	<img id="monster" src="img/Monster.png"/>
+	<img id="speech1" src="img/speech1.png"/>
+	<img id="hill-front-static" src="img/Mozart/hill-front.png"/>
+	<div class="mozartmelody">
+		<img id="BG-mozart" src="img/Mozart/BG-melody.png"/>
+		<img id="rays" src="img/Rays.png"/>
+
+		<img id="harmony-mozart" src="img/Mozart/harmony-mozart.png"/>
+		<img id="hill-front" src="img/Mozart/hill-front.png"/>
+
+		<img id="hill-middle" src="img/Mozart/hill-middle.png"/>
+		<img id="hill-top"  src="img/Mozart/hill-top.png"/>
+		<img id="hill-back"  src="img/Mozart/hill-back.png"/>
+
+		<img id="MozartKey1" src= "img/Mozart/Key1.png"/>
+		<img id="MozartKey2" src= "img/Mozart/Key2.png"/>
+		<img id="MozartKey3" src= "img/Mozart/Key3.png"/>
+		<img id="MozartKey4" src= "img/Mozart/Key4.png"/>
+		<img id="MozartKey5" src= "img/Mozart/Key5.png"/>
+		<img id="MozartKey6" src= "img/Mozart/Key6.png"/>
+		<div id="MozartCadence">
+		<img id="MozartKey7" src= "img/Mozart/Key7.png"/>
+		<img id="MozartKey8" src= "img/Mozart/Key8.png"/>
+		<img id="MozartKey9" src= "img/Mozart/Key9.png"/>
+		<img id="MozartKey10" src= "img/Mozart/Key10.png"/>
+		</div>
+
+	</div>
+
+	<div class="ravelmelody">
+
+		<img id="BG-ravel" src="img/Ravel/BG-ravel.png"/>
+
+		<img id="harmony-ravel" src="img/Ravel/harmony-ravel.png"/>
+		<img id="ravelhill-front" src="img/Ravel/ravelhill-front.png"/>
+		<img id="ravelhill-middle" src="img/Ravel/ravelhill-middle.png"/>
+		<img id="ravelhill-top"  src="img/Ravel/ravelhill-top.png"/>
+		<img id="ravelhill-back"  src="img/Ravel/ravelhill-back.png"/>
+
+		<img id="RavelKey1" src= "img/Ravel/Key1.png"/>
+		<img id="RavelKey2" src= "img/Ravel/Key2.png"/>
+		<img id="RavelKey3" src= "img/Ravel/Key3.png"/>
+		<img id="RavelKey4" src= "img/Ravel/Key4.png"/>
+		<img id="RavelKey5" src= "img/Ravel/Key5.png"/>
+		<img id="RavelKey6" src= "img/Ravel/Key6.png"/>
+		<img id="RavelKey7" src= "img/Ravel/Key7.png"/>
+		<div id="RavelCadence">
+		<img id="RavelKey8" src= "img/Ravel/Key8.png"/>
+		<img id="RavelKey9" src= "img/Ravel/Key9.png"/>
+	</div>
+
+	</div>
+			<div id="site">
+    	<div id="rainZone"></div>
+		</div>	
+
+		<script type="text/javascript" src="js/jquery-min.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
+
+		</body>
+</html>

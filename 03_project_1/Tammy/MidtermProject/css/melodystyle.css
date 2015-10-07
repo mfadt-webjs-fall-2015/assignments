@@ -1,0 +1,365 @@
+body.background{
+	width:100%;
+
+}
+
+#BG-ravel {
+	top: 0px;
+	position: absolute;
+	width: 100%;
+	height:75%;
+	z-index: -1;
+}
+#BG-mozart {
+	top: 0px;
+	position: absolute;
+	width: 100%;
+	height:75%;
+	z-index: 1;
+}
+
+#hands{
+	width: 160px;
+	position: absolute;
+	bottom: 100px;
+	left: 100px;
+	z-index: 6;
+}
+
+#monsterdiv{
+	position: absolute;
+	width: 100px;
+	height: 50px;
+	bottom: 70px;
+	left: 130px;
+	background-color: white;
+	opacity:0;
+	z-index: 7;
+}
+#monster{
+	width: 100px;
+	position: absolute;
+	bottom: 70px;
+	left: 130px;
+	z-index: -1;
+}
+
+#speech1{
+	position: absolute;
+	width: 300px;
+	bottom: 20px;
+	left: 250px;
+	z-index: 7;
+	display: none;
+}
+#weather-change{
+	width: 50px;
+}
+#sunnybutton {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	width: 50px;
+	height: 50px;
+	background-color: white;
+	opacity: 0.3;
+	z-index: 6;
+}
+
+#rainybutton {
+	position: absolute;
+	top: 70px;
+	right: 10px;
+	width: 50px;
+	height: 50px;
+	background-color: white;
+	opacity: 0.3;
+	z-index: 6;
+}
+
+.mozartmelody{
+	display:block;
+
+
+}
+.ravelmelody{
+	display:none;
+}
+/*lower bar*/
+#harmony-mozart{
+	bottom: 0px;
+	position:absolute;
+	width:100%;
+	overflow:hidden;
+	z-index: -3;
+
+}
+
+#harmony-ravel{
+	bottom: 0px;
+	position:absolute;
+	width:100%;
+	overflow:hidden;
+	z-index: -3;
+
+}
+
+#hill-front{
+	position: absolute;
+	bottom: 110px;
+	width: 100%;
+	z-index: 5;
+}
+
+#hill-front-static{
+	position: absolute;
+	bottom: 110px;
+	width: 100%;
+	z-index: -1;
+}
+
+#hill-middle{
+	position: absolute;
+	bottom: 240px;
+	right: 0px;
+	width: auto;
+	z-index: 4;
+}
+
+#hill-top{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: 4;
+
+}
+
+#hill-back{
+	position: absolute;
+	right: 100px;
+	bottom: 240px;
+	z-index: 3;
+}
+
+#MozartKey1{
+	position:absolute;
+	width: 200px;
+	left: 70px;
+	bottom: 150px;
+	z-index: 5;
+	opacity: 0.5;
+}
+
+#MozartKey2{
+	position:absolute;
+	width: 170px;
+	left: 260px;
+	bottom: 120px;
+	z-index: 5;
+	opacity: 0.5;
+}
+
+#MozartKey3{
+	position:absolute;
+	width: 115px;
+	left: 480px;
+	bottom: 120px;
+	z-index: 5;
+	opacity: 0.5;
+}
+
+#MozartKey4{
+	position:absolute;
+	width: 85px;
+	left: 650px;
+	bottom: 120px;
+	z-index: 5;
+	opacity: 0.5;
+}
+
+#MozartKey5{
+	position:absolute;
+	width: 90px;
+	left: 800px;
+	bottom: 120px;
+	z-index: 5;
+	opacity: 0.5;
+}
+
+#MozartKey6{
+	position:absolute;
+	width: 100px;
+	left: 950px;
+	bottom: 130px;
+	z-index: 5;
+	opacity: 0.5;
+}
+#MozartKey7{
+	position:absolute;
+	width: 90px;
+	left: 1080px;
+	bottom: 130px;
+	z-index: 5;
+	opacity: 0.5;
+}
+#MozartKey8{
+	position:absolute;
+	width: 80px;
+	left: 1200px;
+	bottom: 145px;
+	z-index: 5;
+	opacity: 0.5;
+}
+#MozartKey9{
+	position:absolute;
+	width: 70px;
+	left: 1330px;
+	bottom: 155px;
+	z-index: 5;
+	opacity: 0.5;
+}
+#MozartKey10{
+	position:absolute;
+	width: 50px;
+	left: 1450px;
+	bottom: 165px;
+	z-index: 5;
+	opacity: 0.5;
+}
+/*ravel time*/
+
+
+#ravelhill-front{
+	position: absolute;
+	bottom: 110px;
+	width: 100%;
+	z-index: 5;
+}
+
+#ravelhill-middle{
+	position: absolute;
+	bottom: 240px;
+	right: 0px;
+	width: auto;
+	z-index: 4;
+}
+
+#ravelhill-top{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: 4;
+
+}
+
+#ravelhill-back{
+	position: absolute;
+	right: 100px;
+	bottom: 240px;
+	z-index: 3;
+}
+
+#RavelKey1{
+	position:absolute;
+	width: 200px;
+	left: 70px;
+	bottom: 150px;
+	z-index: 5;
+	opacity: 0.5;
+}
+
+#RavelKey2{
+	position:absolute;
+	width: 170px;
+	left: 260px;
+	bottom: 120px;
+	z-index: 5;
+	opacity: 0.5;
+}
+
+#RavelKey3{
+	position:absolute;
+	width: 115px;
+	left: 450px;
+	bottom: 120px;
+	z-index: 5;
+	opacity: 0.5;
+}
+
+#RavelKey4{
+	position:absolute;
+	width: 85px;
+	left: 600px;
+	bottom: 120px;
+	z-index: 5;
+	opacity: 0.5;
+}
+
+#RavelKey5{
+	position:absolute;
+	width: 90px;
+	left: 750px;
+	bottom: 120px;
+	z-index: 5;
+	opacity: 0.5;
+}
+
+#RavelKey6{
+	position:absolute;
+	width: 100px;
+	left: 880px;
+	bottom: 130px;
+	z-index: 5;
+	opacity: 0.5;
+}
+#RavelKey7{
+	position:absolute;
+	width: 90px;
+	left: 1050px;
+	bottom: 130px;
+	z-index: 5;
+	opacity: 0.5;
+}
+#RavelKey8{
+	position:absolute;
+	width: 80px;
+	left: 1200px;
+	bottom: 145px;
+	z-index: 5;
+	opacity: 0.5;
+}
+#RavelKey9{
+	position:absolute;
+	width: 70px;
+	left: 1350px;
+	bottom: 155px;
+	z-index: 5;
+	opacity: 0.5;
+}
+#rays{
+	position:absolute;
+	top: 0;
+	right: 0;
+	width: 80%;
+	z-index: 4;
+	overflow: hidden
+
+}
+.rainDrop {
+    top:0px;
+    left:0px;
+    position:absolute;
+    z-index:1;
+    width: 16px;
+    height: 24px;
+    background-image: url('Raindrop.png');
+}
+
+#site {
+	top: 0px;
+    width:100%;
+    height:60%;
+    margin:0 auto;
+    position:fixed;
+    overflow:hidden;
+}
