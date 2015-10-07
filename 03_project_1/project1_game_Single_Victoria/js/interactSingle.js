@@ -35,6 +35,7 @@ var notThisTurnPlayer = null;
 var endingNow = false;
 var nowPosibleMove = {};
 var NextText = null;
+var NextAni = null;
 var endingMsg = "";
 
 //--------------------------------------------------------------------------------
@@ -49,8 +50,10 @@ var endingMsg = "";
 //style relate.........................................................style relate
 
 var unit = 15;//px
-var startTop = 2*unit;
-var startLeft = 2*unit;
+var startTop = 8*unit;
+var startLeft = 24*unit;
+var playerT = startTop;
+var playerL = startLeft;
 
 //--------------------------------------------------------------------------------
 
@@ -70,22 +73,12 @@ function game(){
 
 //function(part).....................................................function(part)
 
-// function initParse(){
-// 	Parse.initialize("yWnoF1GLoAu1NMfFgYxzaTdOxc7LfwhwYdjkByAz", "NLHgRscamNJTAgfj8CdHXdtfpEP2VFzamHj7CEfv");	
-// 	nameOfTheClass = 'LavaGame';
-// 	//for create
-// 	GameClass = Parse.Object.extend(nameOfTheClass);
-// 	CreateOBJ = new GameClass();
-// 	//for read
-// 	readOBJ = new Parse.Query(nameOfTheClass);
-// }
-
 function startGame(){
 	//create game space
 	ManipulateBox(1);//create boxes
 	//decide who first
 	playerOrder = whoFirst();
-	textShow("#text",playerOrder[0].Name+" go first!");
+	textShow("#text",playerOrder[0].Name+" go first!", "animated pulse");
 	//place the starting
 	placeBox(startingBox,"yellow",0);
 	placeBox(startingBox,"yellow",1);
@@ -105,22 +98,18 @@ function startGame(){
 
 
 function Playing(){
-	console.log("Key= "+Key);
+	console.log("key "+Key);
 	if(Key==1){
 			//take turn
 		thisTurnPlayer = whoTurn();
-		textShow("#text","It's "+thisTurnPlayer.Name+" turn.");
-		textShow("#PlayerInfo","Life: "+thisTurnPlayer.life);
-			//testing only
-		// placeBox([4,5],notThisTurnPlayer.Color,-1);
-		// notThisTurnPlayer.position = [4,5];
-		Key=2;
-			//below just for single screem prototype
 		changePlayer();
+		textShow("#text","It's "+thisTurnPlayer.Name+" turn.", "animated pulse");
+		textShow("#PlayerInfo","Life: "+thisTurnPlayer.life, "animated pulse");
+		Key=2;
 	}else if(Key==2){
 			//first, player have to decide where to move
-		textShow("#text","Click to move your character");
-		showPosible(thisTurnPlayer.position,"white");
+		textShow("#text","Click to move your character", "animated pulse");
+		showPosible(thisTurnPlayer.position);
 		Key=3;
 	}else if(Key==3){
 		$(".box").click(function(event){
@@ -128,19 +117,20 @@ function Playing(){
 			checkMove(thisID);
 		});
 	}else if(Key==4){
-		textShow("#text",NextText);
+		textShow("#text",NextText, NextAni);
 		NextText = "Now Place a new box";
-		textShow("#PlayerInfo","Life: "+thisTurnPlayer.life);
+		NextAni = "animated pulse";
+		textShow("#PlayerInfo","Life: "+thisTurnPlayer.life, NextAni);
 		Key=5;
 	}else if(Key==5){
 			//then, player have to decide place or destroy the box
-		textShow("#text",NextText);
+		textShow("#text",NextText, NextAni);
 		$(".box").click(function(event){
 			var thisID = $(this).attr('id');
 			PlayerBoxMovement(thisID);
 		});
 	}else if(Key==6){
-		textShow("#text",NextText);
+		textShow("#text",NextText, NextAni);
 		Key=1;
 	}
 
@@ -165,27 +155,28 @@ function Playing(){
 		ManipulateBox(2);
 	};
 
-	function showPosible(origin,color){
+	function showPosible(origin){
 		//shing the 4 nearby box til mouse click
 		//except out of the border;
 		//return player's click's id(which has to be box's id)
 		nowPosibleMove = {};
+		$("#box"+origin[0]+"_"+origin[1]).addClass("showPos");
 		nowPosibleMove["me"] = "box"+origin[0]+"_"+origin[1];
-		//console.log(nowPosibleMove);
+
 		if(origin[0]+1<6){
-			$("#box"+(origin[0]+1)+"_"+origin[1]).css("background-color",color);
+			$("#box"+(origin[0]+1)+"_"+origin[1]).addClass("showPos");
 			nowPosibleMove["down"] = "box"+(origin[0]+1)+"_"+origin[1];
 		}
 		if(origin[1]+1<6){
-			$("#box"+origin[0]+"_"+(origin[1]+1)).css("background-color",color);
+			$("#box"+origin[0]+"_"+(origin[1]+1)).addClass("showPos");
 			nowPosibleMove["right"] = "box"+origin[0]+"_"+(origin[1]+1);
 		}
 		if(origin[0]-1>0){
-			$("#box"+(origin[0]-1)+"_"+origin[1]).css("background-color",color);
+			$("#box"+(origin[0]-1)+"_"+origin[1]).addClass("showPos");
 			nowPosibleMove["up"] = "box"+(origin[0]-1)+"_"+origin[1];
 		}
 		if(origin[1]-1>0){
-			$("#box"+origin[0]+"_"+(origin[1]-1)).css("background-color",color);
+			$("#box"+origin[0]+"_"+(origin[1]-1)).addClass("showPos");
 			nowPosibleMove["left"] = "box"+origin[0]+"_"+(origin[1]-1);
 		}
 		//console.log(nowPosibleMove);
@@ -198,11 +189,11 @@ function Playing(){
 		var clickPos = []; 
 		var validOrNot = false;
 		var costOneLife = false;
-		console.log("which: "+which);
+		console.log("which: "+which+"thisTurnPlayer: "+thisTurnPlayer.life);
 		for(pos in nowPosibleMove){
 			if(which == nowPosibleMove[pos]){
 				clickPos = [parseInt(which[3]),parseInt(which[5])];
-				console.log("clickPos: "+ clickPos);
+				//console.log("clickPos: "+ clickPos);
 				validOrNot = true;
 				if(!boxes[clickPos].already){
 					costOneLife = true;
@@ -211,56 +202,66 @@ function Playing(){
 		}
 		if(validOrNot){
 			//move
-			//console.log("costOneLife: "+costOneLife);
 			if(!costOneLife){
 				playerPostionUpdate(clickPos,thisTurnPlayer);
+				NextText = "Valid move!";
+				NextAni = "animated fadeIn";
+				Key=4;
 				if(equal(thisTurnPlayer.position,goal)){
 					endingMsg = "You get to the goal!\n";
 					Key = 10;
 				}
-				NextText = "Valid move!";
-				Key=4;
 			}else{
+				console.log("--");
 				thisTurnPlayer.life --;
+				NextText = "Lava!!!!! Cost one life";
+				NextAni = "animated shake";
 				if(thisTurnPlayer.life==0){
-					//console.log("go die");
 					endingMsg = "You lose all your life!\n";
 					Key = 10;
 				}else{
 					Key = 4;
 				}
-				NextText = "Lava!!!!! Cost one life";
 			}
-			//console.log("NextText: "+NextText);
 			ManipulateBox(3);
-			$(".box").unbind("click");
 		}else{
-			textShow("#text","Please click valid box.");
+			textShow("#text","Please click valid box.", "animated shake");
 		}
+		$(".box").unbind("click");
+		//gameStage();
 	};
 
 	function PlayerBoxMovement(which){
 		//player can create/destroy a box by click the box
 		//any kind move should show on the text
 		var clickPos = [parseInt(which[3]),parseInt(which[5])];
-		console.log(which);
+		console.log(which+" which.already "+boxes[clickPos].already+" key "+Key);
 		if(equal(clickPos,goal) || equal(clickPos,startingBox)){
 			NextText = "You cannot place at Goal or Start! Press again";
+			NextAni = "animated shake";
+		}else if (equal(clickPos,thisTurnPlayer.position)){
+			NextText = "You cannot destroy your own position! Press again";
+			NextAni = "animated shake";
 		}else{
 			if(boxes[clickPos].already){
 				//destroy
+				console.log("Destroy!");
 				NextText = "Destroy!";
+				NextAni = "animated shake";
 				removeBox(clickPos);
 				checkSomeoneDieOrNot(notThisTurnPlayer,clickPos);
 			}else{
 				//place your color
+				console.log("Create!");
 				NextText = "Create!";
+				NextAni = "animated fadeIn";
 				placeBox(clickPos,notThisTurnPlayer.Color,-1);
 				Key=6;
 			}
 			ManipulateBox(3);
-			$(".box").unbind("click");
 		}
+		$(".box").unbind("click");
+		//gameStage();
 	};
 
 	function checkSomeoneDieOrNot(player,destroySpot){
@@ -282,14 +283,16 @@ function ending(){
 		endingNow = true;
 		if(player1.life==0 ||  equal(player2.position,goal)){
 			endingMsg += "player2 win";
+			$("#ending").css("color",player2.Color);
 		}else{
 			endingMsg += "player1 win";
+			$("#ending").css("color",player1.Color);
 		}
 	}
 	if(endingNow){
 		//ending scene
 		$("#ending").show();
-		textShow("#ending",endingMsg);
+		textShow("#ending",endingMsg, "animated bounceIn");
 	}
 	console.log("ending? "+endingMsg);
 };
@@ -309,6 +312,7 @@ function gameStage(){
 	}
 	if(Key==10){
 		ending();
+		$(document).unbind("click");
 	}
 };
 
@@ -330,8 +334,9 @@ function playerPostionUpdate(newPos,player){
 		player.position = newPos;
 		//console.log("new box: "+boxes[player.position].player[player.Num]);
 	}
-	$("#token").css("top",(player.position[0]-1)*6*unit+unit*2);
-	$("#token").css("left",(player.position[1]-1)*6*unit+unit*2);
+	$("#token").css("top",(player.position[0]-1)*6*unit+playerT);
+	$("#token").css("left",(player.position[1]-1)*6*unit+playerL);
+	addAnimation("#token","animated zoomIn");
 }
 
 function ManipulateBox(Mode){
@@ -347,11 +352,13 @@ function ManipulateBox(Mode){
 					$("#"+newBoxId).css("background-color",newBox.Color);
 					$("#"+newBoxId).css("top",startTop+(i-1)*unit*5+"px");
 					$("#"+newBoxId).css("left",startLeft+(j-1)*unit*5+"px");
+					addAnimation("#"+newBoxId,"animated zoomIn");
 					startLeft += unit;
 				break;
 				case 2://refresh
 					var nowBox = boxes[[i,j]];
 					$("#"+nowBox.Id).css("background-color",nowBox.Color);
+					//addAnimation("#"+nowBox.Id,"animated fadeIn");
 				break;
 				case 3://change to current player's color and refresh
 					var nowBox = boxes[[i,j]];
@@ -362,6 +369,8 @@ function ManipulateBox(Mode){
 						}
 					}
 					$("#"+nowBox.Id).css("background-color",nowBox.Color);
+					$("#"+nowBox.Id).removeClass("showPos");
+					//addAnimation("#"+nowBox.Id,"animated fadeIn");
 				break;
 			}
 			
@@ -376,10 +385,12 @@ function ManipulateBox(Mode){
 function removeBox(thisBox){
 	var GetBox = boxes[thisBox];
 	GetBox.already = false;
+	addAnimation("#"+GetBox.Id,"animated shake");
 }
 
 function placeBox(thisBox,color,placeWho){
 	var GetBox = boxes[thisBox];
+	addAnimation("#"+GetBox.Id,"animated fadeIn");
 	if(color!=-1){
 		GetBox.Color = color;
 		GetBox.already = true;
@@ -389,8 +400,14 @@ function placeBox(thisBox,color,placeWho){
 	}
 };
 
+function addAnimation(ID,animate){
+	$(ID).addClass(animate);
+	$(ID).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',
+		function(){$(ID).removeClass(animate);})
+}
 
-function textShow(divHere,stringHere){
+function textShow(divHere,stringHere,ani){
 	//console.log(stringHere);
 	$(divHere).text(stringHere);
+	addAnimation(divHere,ani);
 };
