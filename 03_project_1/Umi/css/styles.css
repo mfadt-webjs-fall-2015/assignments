@@ -14,7 +14,7 @@ body, html{
   background-color: #eee;
   line-height: 1.5em;
 }
-a:link {
+a:link, a:visited {
   color:#fd4f57;
   text-decoration: none;
 }
