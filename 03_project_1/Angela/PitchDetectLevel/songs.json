@@ -1,0 +1,23 @@
+[
+	{
+		"name": "Twinkle Twinkle Little Star",
+		"file": "sounds/Twinkle.wav",
+		"length": "34s",
+		"difficulty": "Easy"
+	},
+	
+	{
+		"name": "Ode To Joy",
+		"file": "sounds/Ode_to_Joy.wav",
+		"length": "44s",
+		"difficulty": "Medium"
+	},
+
+	{
+		"name": "Happy Birthday",
+		"file": "sounds/Birthday.wav",
+		"length": "21s",
+		"difficulty": "Hard"
+	}
+
+]
