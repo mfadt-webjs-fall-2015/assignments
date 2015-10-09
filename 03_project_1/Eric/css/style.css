@@ -46,5 +46,8 @@ background-repeat: no-repeat;
 
 
 #result{
-	back
+	font-family:'Maven Pro', sans-serif;
+	font-weight: 400;
+	font-size: 17px;
+	text-align:justify;
 }
