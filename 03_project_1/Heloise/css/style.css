@@ -1,0 +1,59 @@
+
+body {
+font-family: courier;
+
+}
+a {
+	color: #FFF;
+}
+a:hover {
+	color: #000;
+	background-color:#FFF;
+}
+#title {
+	margin-bottom: 30px;
+}
+nav {
+	margin: 10px;
+	padding: 5px;
+	background-color: #000;
+	color: #FFF;
+}
+#container {
+	margin: 0 auto;
+	width: 60%;
+	text-align: center;
+}
+.tag1 {
+  background-color: #FFEEDE;
+  border: 0px;
+  height: 30px;
+  margin-bottom: 5px; }
+
+.tag2 {
+  background-color: #FFEEDE;
+  border: 0px;
+  height: 30px;
+  margin-bottom: 5px; }
+
+.img {
+  width: 306px;
+  height: 306px;
+  margin: 0px auto;}
+
+
+ #img2 {
+ /* background-image: url(img/insta3.jpg), url(img/insta4.jpg); */
+  background-size: 306px 306px;
+  width: 306px;
+  height: 306px; 
+}
+#imginner {
+  opacity: 0.5;
+  width: 306px;
+  height: 306px;
+  margin: 0px;
+  }
+ #save {
+ 	margin: 20px;
+  }
