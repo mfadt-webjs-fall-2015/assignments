@@ -1,0 +1,27 @@
+Title:     
+
+     Zhang_CIPHERBOOK_JavascriptProject
+  
+     Read Me:
+     
+     This project is go to let people share information in a safe way. Use Cipherbook users can encode their text information and decode it. It allow users just speak to
+the web page. Web speech API help users to translate voice to text. Then users can encode it.   
+         
+      
+     Address:
+    
+     http://a.parsons.edu/~yangc901/zhanggeyao/Mark5/index.html
+
+         
+     video:
+    
+     https://www.youtube.com/watch?v=4gIQ8-qUViE&feature=youtu.be
+         
+     
+      Additional thing:
+      When I want to make a encode and decode web. At first I looked processing for help. Because I know how to use it but I just started to learn Javascript. I want to use it as a draft or I can write a java program and use "<script></script>" to combine the java and html.
+      But after I tried for several days. I found processing is to complex to encode. I need a library to help me to store all the ciphers.
+      So I start to study how to solve this problem in Javascript. After searching for a long time and asked some friends around me. I still can't find the way. Then I asked my friends in China who is really good at coding. He tell me to try to use base64. Then I found this page:
+http://scotch.io/quick-tips/js/how-to-encode-and-decode-strings-with-base64-in-javascript
+It tell me how to encode and decode text just in 6 lines of code.
+      Because I started it from nothing. This project helped me a lot with javascript.
