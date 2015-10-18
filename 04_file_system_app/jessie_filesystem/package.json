@@ -1,0 +1,18 @@
+{
+  "name": "jessie_filesystem",
+  "version": "1.0.0",
+  "description": "web advanced file system app",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "express": "^4.13.3",
+    "findit": "^2.0.0",
+    "parentpath": "^0.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jessie Contour",
+  "license": "ISC"
+}
