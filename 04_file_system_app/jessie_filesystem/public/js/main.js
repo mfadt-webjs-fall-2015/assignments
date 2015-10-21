@@ -56,13 +56,12 @@ app.main = (function() {
 		)
 	}
 
-	//write poop.txt
-	//HOW DO MAKE myFilePath be a random selection from dirs[] in app.js?
-	var writeShit = function(myfilePath) {
+	//NOT WORKING, NOTES IN APP.JS
+	var writeShit = function() {
 		$.post(
-			'/writeFile',
-			{ filePath: myfilePath + "/some_shit.txt",
-			  content: 'poop' },
+			'/writeShit',
+			// { filePath: myfilePath + "/some_shit.txt",
+			  // content: 'shit' },
 			function(res){
 				console.log(res)
 			}
@@ -74,6 +73,7 @@ app.main = (function() {
 		readFile: readFile,
 		writeFile: writeFile, 
 		readDir: readDir,
+		findDir: findDir,
 		writeShit: writeShit
 	};
 

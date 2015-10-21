@@ -46,20 +46,45 @@ app.use('/', express.static(__dirname + '/public'));
 //HOW MAKE START DIRECTORY TOP OF pDir?
 var dirs = [];
 
-finder.on('directory', function (dir, stat, stop) {
-    var base = path.basename(dir);
-    //var base = pDir;
-    if (base === '.git' || base === 'node_modules'){ stop() }
-    else { console.log(dir + '/');
-	dirs.push(dir + '/') }
-});
+//THESE TWO FUNCTIONS AREN'T WORKING :(
+//TRYING TO CHANGE DIR TO /USERS/CONTOUR/DOCUMENTS
+//PUSH ALL SUBDIRS INTO ARRAY
+//PICK RANDOM ONE AND WRITE SHIT TO IT
+var writeShit = function(dirs){
+	var id = Math.floor(Math.random() * dir.length());
+	dir = dirs[id];
+	fs.writeFile((dir + "shit.txt"), 'shit', function(err) {
+	    if (err) {
+	       throw err;
+	   	};
+	   	console.log('wrote file');
+	});
+}
+
+var listDirs = function(dir){
+	finder.on('directory', function (dir, stat, stop) {
+	    var base = dir;
+	    if (base === '.git' || base === 'node_modules'){ stop() }
+	    else { console.log(dir + '/');
+		dirs.push(dir + '/') }
+	});
+	console.log(dirs)
+	writeShit(dirs);
+}
 
 // ROUTERS
-//GET is a method from HTTP protocol
-//'/page' can be anything
-app.post('/shit', function(req, res){
-	res = dirs;
-	console.log(res);
+
+app.post('/writeShit', function(req, res, callback){
+	console.log('Current directory: ' + process.cwd());
+	try {
+	  process.chdir('/Users/Contour/Documents');
+	  var basedir = process.cwd()
+	  console.log('New directory: ' + process.cwd());
+	  listDirs(basedir);
+	}
+	catch (err) {
+	  console.log('chdir: ' + err);
+	}
 })
 
 app.post('/findDir', function(req, res){
