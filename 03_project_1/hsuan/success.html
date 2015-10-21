@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html >
+    <head>
+        <meta charset="UTF-8">
+        <title> Login </title>
+        <script type="text/javascript" src="./js/jquery-1.6.min.js"></script>
+        <script>
+
+            //載入後執行的函式
+            function load(){
+                
+                //取出access_token
+                temp = location.href;
+                access = temp.split('=')[1];
+                the_url = "https://api.instagram.com/v1/users/self/?access_token="+access;
+                
+                //向instagram api要取資訊
+                $.ajax({
+                    url: the_url,
+                    dataType: 'jsonp',
+                    type: 'get',
+                    success: function(data) {
+                        //擷取出被追蹤人數
+                        followed_by = data["data"]["counts"]["followed_by"];
+
+                        if(followed_by < 10){
+                            document.location.href="./animal01.html";
+                        }
+                        else if(followed_by < 50){
+                            document.location.href="./animal02.html";
+                        }
+                        else{
+                            document.location.href="./animal03.html";
+                        }
+                    }
+                });      
+            }
+            
+        </script>
+    </head>
+
+    <body onload="load()">
+
+    </body>
+</html>

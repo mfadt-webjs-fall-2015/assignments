@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Web Advanced JavaScript: Fall 2015</title>
+	<meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Amatic+SC' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/normalize.min.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body >
+  <script type="text/javascript" src="instafeed/instafeed.min.js"></script>
+  <script type="text/javascript" src="js/jquery-min.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+   <script src="responsivevoice.js"></script>
+   <script src='https://code.responsivevoice.org/responsivevoice.js'></script>
+<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+
+
+
+<div id="cols">
+  <div class="elements">
+  <div class="sidebar">
+        <h1>InstaLIB</h1>
+        <h7><span style="font-weight:100">Create your own instagram mad lib! </span> Fill in the spaces below.</h7>
+     
+        <form onsubmit="return ((instaRun() & instaRun2() & instaRun3() & instaRun4() & instaRun5() & instaRun6 & Generatestory()) == 1)">
+          <!-- //instaTag is your "noun/verb etc" -->
+          
+        <input name="tag" id="instaTag" type="text" value="ADVERB">
+        <!--   <p id="words">ADVERB</p> -->
+          <input name="tag" type="text" id="instaTag2" value="ADJECTIVE">
+         <!--  <p id="words">ADJECTIVE</p> -->
+           <input name="tag" type="text" id="instaTag3" value="ADJECTIVE">
+             <!-- <p id="wordsX  ">ADJECTIVE</p> -->
+              <input name="tag" type="text" id="instaTag4" value="NOUN">
+             <!-- <p id="wordsX  ">NOUN</p> -->
+                    <input name="tag" type="text" id="instaTag5" value="NOUN">
+            <!--  <p id="wordsX  ">NOUN</p> -->
+                 <!--    <input name="tag" type="text" id="instaTag6">
+             <p id="wordsX  ">VERB</p> -->
+        
+      
+         
+          <input id="button1" type="submit" value="submit" class="btn" value="Find">
+<!--           <input 
+  onclick="responsiveVoice.speak($('#story').val(),$('#voiceselection').val());" 
+  type="button" 
+  value="Play" 
+/>
+     -->    </form>
+    </div>
+  </div>
+
+
+
+
+<div class="elements">
+  
+  <div id="instafeed"></div>
+  <div id="instafeed2"></div>
+  <div id="instafeed3"></div>
+  <div id="instafeed4"></div>
+  <div id="instafeed5"></div>
+
+  
+
+ 
+</div>
+
+
+
+
+<div class="elements">
+
+ 
+      <p id="story" style="visibility:hidden">
+      <span style="font-size: 30px">All Watched Over by Machines of Loving Grace</span><br><br>
+           I like to think (and
+            the sooner the better!)
+            of a <span id="story_instaTag" style="color:#ff7f00" ></span> meadow
+            where mammals and computers live together in <span id="story_instaTag2" style="color:#ff7f00" ></span> programming harmony like  <span id="story_instaTag3" style="color:#ff7f00" ></span> touching clear sky.I like to think (right now, please!) of a cybernetic <span id="story_instaTag4" style="color:#ff7f00" ></span> filled with pines and electronics
+where  <span id="story_instaTag5" style="color:#ff7f00" > stroll peacefully  past computers as if they were flowers  with spinning blossoms.I like to think (it has to be!) of a cybernetic ecology where we are free of our labors and joined back to nature, returned to our mammal  brothers and sisters,  and 
+all watched over by machines of loving grace.
+  
+            I like to think (and the sooner the better!)of a 
+            <!-- <span id="story_instaTag" style="color:#ff7f00"></span>  -->
+            meadow where mammals and computerslive together in 
+           <!--  <span id="story_instaTag2" style="color:blue"></span>  -->
+            programming harmony like  
+           <!--  <span id="story_instaTag3" style="color:blue"></span>  -->
+            water touching clear sky.I like to think (right now, please!) of a cybernetic 
+            <!-- <span id="story_instaTag4" style="color:blue"></span>  -->
+            filled with pines and electronics where  deer stroll peacefully past computers as if they were flowers with spinning blossoms.I like to think (it has to be!) of a cybernetic ecology where we are free of our labors and joined back to nature, returned to our mammal brothers and sisters, and 
+            all watched over by machines of loving grace.
+            <!-- <span id="story_instaTag5" style="color:blue"></span> -->
+
+</p>
+
+
+
+
+
+
+</div>
+</div>
+ 
+
+
+</body>
+</html>
+
+<!-- 
+resources:
+http://codepen.io/matt-west/pen/lAFnx -->
+<!-- http://codepen.io/razitazi/pen/qdKXKz -->
+<!-- http://codepen.io/vpantano/pen/DBlGJ -->

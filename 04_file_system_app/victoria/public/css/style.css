@@ -1,0 +1,70 @@
+/* your style begins here */
+body{
+	padding: 2%;
+	background-color: #F2EBC7;
+	font-size: 20px;
+	font-family: 'Montserrat', sans-serif;
+}
+button{
+	font-family: 'Montserrat', sans-serif;
+}
+
+h1{
+	font-size: 28px;
+}
+b{
+	color: #343642;
+	background-color: #F2EBC7;
+}
+
+.btn {
+  -webkit-border-radius: 20;
+  -moz-border-radius: 20;
+  border-radius: 20px;
+  color: #343642;
+  background: #979C9C;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #F2EBC7;
+  text-decoration: none;
+}
+
+#sub{
+	margin-top: 5%;
+	font-family: 'Montserrat', sans-serif;
+}
+
+#newHolder{
+	color: #F2EBC7;
+	float: left;
+	padding: 5%;
+	background-color: #962D3E;
+	margin-left: 5%;
+	width: 20%;
+	height: 450px;
+	-webkit-border-radius: 20px;
+-moz-border-radius: 20px;
+border-radius: 20px;
+
+}
+
+#vocHolder{
+	color: #F2EBC7;
+	background-color: #348899;
+	padding: 5%;
+	margin-left: 35%;
+	width: 50%;
+	height: 450px;
+	-webkit-border-radius: 20px;
+-moz-border-radius: 20px;
+border-radius: 20px;
+}
+.voc{
+	color: #343642;
+}
+.voc:hover{
+	font-size: 24px;
+}

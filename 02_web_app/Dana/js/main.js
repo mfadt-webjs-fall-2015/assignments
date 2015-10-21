@@ -63,6 +63,7 @@ app.main = (function(){
 			wordAry[i] = headline.split(" ");
 		}
 		console.log(wordAry);
+
 		 countWords(wordAry);
 	};
 
