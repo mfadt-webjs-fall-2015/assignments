@@ -1,0 +1,41 @@
+/* your style begins here */
+body {
+	margin:0;
+	padding:0;
+	background: url('bg.jpg') repeat center center;
+	font-family: 'Gloria Hallelujah', cursive;
+	line-height: 34pt;
+}
+#container {
+	width: 85%;
+	margin: 0 auto;
+	min-height: 100px;
+}
+.food {
+	width:86px;
+	height:66px;
+	background: #333;
+	color:#fff;
+	padding: 20px;
+	text-align: center;
+	display: inline-block;
+	float: left;
+	margin: 10px 10px 0 0;
+	font-size: 36pt;
+	cursor: pointer;
+	padding-top:40px;
+}
+
+.food:hover {
+	background-color: #555;
+}
+
+.examples {
+	width: 96%;
+	background: #eee;
+	text-align: center;
+	margin: 80px 0 0 0;
+	padding: 40px 20px;
+	opacity: 0.9;
+	font-size: 28pt
+}
