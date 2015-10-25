@@ -3,37 +3,37 @@
 var app = app || {};
 
 app.main = (function() {
-	console.log('Your code starts here!');
-
-	var attachEvents = function(){
-		$('input-button').off('click').on('click', function(){
-			loadText($(this).html());
+	
+	var getText = function(){
+		console.log('text got');	
+		$('#input-button').off('click').on('click', function(){
+			  saveText($('#input-box').val());
+		});
+		$('#input-box').off('click').on('click', function(){
+			  saveText($('#input-box').val());
 		});
 	};
 
-	var loadText = function(){
-		$.getJSON('/text', function(response){
-		});	
+	var saveText = function(textToSave){
+		$.post('/saveText',{text:textToSave},function(response){
+			console.log(response);
+			showText(response);
+		});
 
-		$.post('/text', {
-			text: text
-		}, function(response) {
-        	console.log(response);
-        	$('#output').empty();
-        	$('#output').append('<p> ' + response['text'] + '</p>');
-        	for(var prop in response['text']){
-				$('#output').append('<p>' + prop + ': ' + response['text'][prop] + '</p>');
-        	}
-	    });
 	};
 
+	var showText = function(response){
+		$('#output').empty();
+		$('#output').append('<p>' + response['text'] + '</p>');
+	};
+	
 	var init = function(){
-		console.log('Initializing app.');
-		attachEvents();
+		console.log('Show Text App');
+		getText();
 	};
 
 	return {
-		init: init
+		init:init
 	};
 
 })();

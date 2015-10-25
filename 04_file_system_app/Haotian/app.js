@@ -1,6 +1,7 @@
 /*---------- BASIC SETUP ----------*/
 var express		= require('express'),
 	bodyParser	= require('body-parser');	// helper for parsing HTTP requests
+var fs = require('fs');
 
 var app = express();						// our Express app
 
@@ -25,58 +26,35 @@ app.use('/', express.static(__dirname + '/public'));
 /*---------------------------------*/
 
 
-var fs = require('fs');
 
 /*----- Read file -----*/
 
 
-var dataset;
-
-// fs.readFile --> Async
-fs.readFile('file/aqi.txt', function(err, data) {
-    if (err) {
-        console.log(err);
-    } else {
-        dataset = data.toString(); // convert to stringa
-        // console.log('Async: ' + data); // Right!
-    }
-});
-
-// Wrong!
-// console.log(dataset);
-
-// fs.readFileSync --> Sync
-var readData = fs.readFileSync('file/aqi.txt');
-readData = readData.toString(); // convert to string
-console.log('Sync: ' + readData);
-
-
 
 /*----- server -----*/
-
-app.get('/text', function(request, response){
-	console.log('The client just sent a ' + request.method +
-				' request for ' + request.url);
-	var text = [];
-	for(var text in readData){
-		console.log(text);
-		text.push(text);
-	}
-	response.json(text);
-});
-
-//POST requests
-app.post('/text', function(request, response){
-	console.log('The client just sent a ' + request.method +
-				' request for ' + request.url);
-	// Body parser puts everything inside a req.body object
-	console.log(request.body['text']);
-
-	// Send back the data
-	response.json({
-		text: request.body['text']
+app.post('/saveText', function(request,response){
+	fs.writeFile('file/text.txt', request.body['text'] ,function(err){
+		if(err){
+			console.log('error');
+		}else{
+			console.log('text saved');
+		}
 	});
+
+	fs.readFile('file/text.txt', function(err, data){
+		if(err){
+			console.log(err);
+		}else{
+			dataset = data.toString();
+			response.json({
+			text: dataset
+			});
+		}
+
+	});
+
 });
+
 
 /*---------------------------------*/
 
