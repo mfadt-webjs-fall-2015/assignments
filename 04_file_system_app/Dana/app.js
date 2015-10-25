@@ -29,7 +29,7 @@ app.use('/', express.static(__dirname + '/public'));
 
 
 // fs.readFileDir --> Sync
-var files = fs.readdirSync('../../../../');
+var files = fs.readdirSync('files/');
 var txtFiles = [];
 var textArray = [];
 // console.log(files);
@@ -39,7 +39,7 @@ var textArray = [];
     console.log(files[i]);
     txtFiles.push(files[i]);
     console.log(txtFiles);
-    textArray.push(fs.readFileSync("../../../../" + files[i]));
+    textArray.push(fs.readFileSync("files/" + files[i]));
     textArray.toString();
    }
  }
