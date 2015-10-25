@@ -109,7 +109,7 @@ app.post('/def', function(request, response){
 
 
 /*---------- BASIC SETUP ----------*/
-var PORT = 1234;
+var PORT = 8000;
 app.listen(PORT, function(){
 	console.log('Express server is running at ' + PORT);
 });
