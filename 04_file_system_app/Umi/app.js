@@ -22,97 +22,71 @@ app.use(function(req, res, next) {
 });
 
 app.use('/', express.static(__dirname + '/public'));
+
 /*---------------------------------*/
-
-////////////////////////////////
+/*-------------- FILESYSTEM --------------*/
 var fs = require('fs');
-var vocList = {};
+var food_db = {};
+var dataset;
 
-//======= Get Voc =========
-var readData = fs.readFileSync('files/voc.txt');
-readData = readData.toString();
+fs.readFile('foo.txt', function(err, data) {
+    if (err) {
+        console.log(err);
+    } else {
+        dataset = data.toString(); // convert to string
+        console.log(dataset);
+        var temp = dataset.split(",");
+        for (var i=0; i<temp.length; i+=2) {
+        	if(temp != null) {
+        		food_db[temp[i]] = {foodname: temp[i+1]};
+        	}
+        }
+        console.log(food_db);
+    }
+});
 
-getVoc();
-function getVoc(){
-	var returnString="";
-	console.log(readData);
-	if(readData!=null){
-		var tempVocList = readData.split(";");
-		//console.log(tempVocList);
-		for(var i=0;i<tempVocList.length;i+=2){
-			//console.log(i);
-			if(tempVocList[i]!=""){
-				vocList[tempVocList[i]]={def:tempVocList[i+1]};
-			}
-		}
 
-				// for(var voc in vocList){
-				// 	returnString += "<b>"+voc+"</b>: "+vocList[voc]+". <br>";
-				// }
-				// return returnString;
-		console.log(vocList);
-		getit();
-	}
-}
-//======= Save Voc =========
-function saveVoc(Voc,def){
-	var saveData = Voc+";"+def+";";
-	fs.appendFileSync('files/voc.txt',saveData);
-	readData = fs.readFileSync('files/voc.txt');
-	readData = readData.toString();
-	getVoc();
-}
 // ROUTERS
-
 
 // We won't use GET with AJAX requests though
 // GET is more useful when you're requesting pages that
 // are generated dinamically on the server
-function getit(){
-	app.get('/vocList', function(request, response){
-		console.log('The client just sent a ' + request.method +
-					' request for ' + request.url);
-		var names = [];
-		for(var name in vocList){
-
-			console.log(name);
-			names.push(name);
-		}
-		response.json(names);
-	});
-}
-
-
-
-app.post('/addNew',function(request, response){
+app.get('/food_db', function(request, response){
 	console.log('The client just sent a ' + request.method +
 				' request for ' + request.url);
-	saveVoc(request.body['newVoc'],request.body['newDef']);
+	var names = [];
+	for(var name in food_db){
+		console.log(name);
+		names.push(name);
+	}
+	response.json(names);
 });
 
 // POST requests
-app.post('/def', function(request, response){
+app.post('/foodname', function(request, response){
 	console.log('The client just sent a ' + request.method +
 				' request for ' + request.url);
 	// Body parser puts everything inside a req.body object
-	console.log(request.body['voc']);
+	console.log(request.body['food']);
 
 	// Send back the data
 	response.json({
-		voc: request.body['voc'],
-		def: vocList[request.body['voc']]
+		food: request.body['food'],
+		foodname: food_db[request.body['food']]
 	});
 });
 
-///////////////////////////////////////
 
 
+/*---------------------------------*/
 
 /*---------- BASIC SETUP ----------*/
-var PORT = 8000;
+var PORT = 4000;
 app.listen(PORT, function(){
 	console.log('Express server is running at ' + PORT);
 });
 /*---------------------------------*/
+
+
 
 

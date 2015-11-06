@@ -1,0 +1,80 @@
+body {
+	font-family: 'Orbitron', sans-serif;
+	text-align: center;
+	background-color: #c0c0c0;
+}
+#wrapper {
+	width: 75vw;
+	margin: 0 auto;
+}
+
+h1 {
+	font-family: 'Cabin Sketch';
+	font-size: 5em;
+	margin-bottom: 25px;
+	color: black;
+}
+h2 {
+	font-family: 'Orbitron', sans-serif;
+	font-size: 1.3em;
+	color: black;
+}
+p {
+	font-size: 1em;
+}
+
+#thought-form {
+	margin-bottom: 3vh;
+}
+#thought-input {
+	height: 45px;
+	width: 400px;
+	padding-left: 10px;
+	margin: 0 auto;
+	background-color: white;
+	border: 3px solid black;
+	border-radius: 10px;
+	color: black;
+}
+button {
+	height: 45px;
+	width: 200px;
+	margin: 5vh auto;
+	padding: 25px auto;
+	background-color: white;
+	border: 3px solid black;
+	border-radius: 10px;
+	font-family: 'Orbitron', sans-serif;
+}
+#bo-img {
+	position: absolute;
+	float: left;
+	width: 50%;
+	margin: 0 auto;
+	margin-left: -25%;
+	border: 10px solid white;
+	border-radius: 15px;
+	z-index: 0;
+}
+#thought-bubble {
+	/*display: none;*/
+	position: relative;
+	margin-top: -5%;
+	margin-left: 50%;
+	width: 30%;
+	z-index: 1;
+}
+#thought-output {
+	/*display: none;*/
+	position: relative;
+	float: left;
+	margin-top: -12%;
+	margin-left: 65%;
+	width: 25%;
+	text-align: left;
+	z-index: 3;
+}
+#random-thought {
+	margin-top: 5vh;
+	width: 400px;
+}
