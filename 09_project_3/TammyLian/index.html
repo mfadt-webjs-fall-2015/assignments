@@ -1,0 +1,336 @@
+<!--Sorry, I had to leave the script on the html, because for some reason when I tried to transfer it to a separate file, it would always crash. Weird!--> 
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Chorale</title>
+	<meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+	<link rel="stylesheet" href="css/normalize.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<script type="text/javascript" src="js/paper-full.js"></script>
+    <!--<script type = "text/paperscript" src="js/main.js" canvas="myCanvas"></script>-->
+	<script type="text/paperscript" canvas="myCanvas">
+
+	    var ballPositions = [[786, 190], [450, 353], [800, 510], [1250, 600], [980, 850], [1250, 1100], [900, 1200], [650, 1400], [311, 1600], [678, 1800], [1004, 2000], [699, 2200], [455, 2430], [200,2600], [504, 2750], [873, 2750], [511, 3100], [873, 3100], [1234, 3200], [1000, 3450]];
+        //[786, 1600], [503, 1800]
+        // var colors = ['#f4762e', '#f55b32', '#fb9512', '#fbab12', '#fb9512', '#c4bc7b', '#cac949', '#fb9512', '#f56e32', '#f55b32', '#ef5669', '#e76b94', '#fb9512', '#fbab12', '#f7b02b', '#ee667d', '#e2837f', '#f55b32', '#f4762e', '#fb9512'];
+
+
+
+
+        //oscillator.stop(context.currentTime + 3);
+        // var audio = new Audio(),
+        // i = 0;
+        // var playlist = new Array('audio/D4.wav', 'audio/F4.wav', 'audio/C3.wav', 'audio/A4.wav', 'audio/G3.wav', 'audio/E5.wav');
+        
+
+        // audio.addEventListener('ended', function () {
+        //     i = ++i < playlist.length ? i : 0;
+        //     console.log(i)
+        //     audio.src = playlist[i];
+        //     audio.play();
+        // }, true);
+        //     audio.volume = 0.3;
+        //     audio.loop = false;
+        //     audio.src = playlist[0];
+        //     audio.play();
+
+        var A2 = $('#A2')[0];
+        var A3 = $('#A3')[0];
+        var A4 = $('#A4')[0];
+        var B2 = $('#B2')[0];
+        var B3 = $('#B3')[0];
+        var B4 = $('#B4')[0];
+        var C3 = $('#C3')[0];
+        var C4 = $('#C4')[0];
+        var C5 = $('#C5')[0];
+        var D3 = $('#D3')[0];
+        var D4 = $('#D4')[0];
+        var D5 = $('#D5')[0];
+        var E3 = $('#E3')[0];
+        var E4 = $('#E4')[0];
+        var E5 = $('#E5')[0];
+        var F2 = $('#F2')[0];
+        var F3 = $('#F3')[0];
+        var F4 = $('#F4')[0];
+        var G2 = $('#G2')[0];
+        var G3 = $('#G3')[0];
+        var G4 = $('#G4')[0];
+
+        var handle_len_rate = 2.4;
+        var circlePaths = [];
+        var radius = 50;
+        
+        for (var i = 0, l = ballPositions.length; i < l; i++) {
+            var circlePath = new Path.Circle({
+                center: ballPositions[i],
+                //fillColor: colors[i], 
+                fillColor: '#feba6b',
+                opacity: 0.8,
+                radius: 50
+            });
+
+            circlePaths.push(circlePath);
+        }
+
+        var largeCircle = new Path.Circle({
+            center: [676, 433],
+            fillColor: '#feba6b',
+            radius: 100
+        });
+        circlePaths.push(largeCircle);
+
+        function onMouseMove(event) {
+            largeCircle.position = event.point; 
+            generateConnections(circlePaths);
+
+        }
+//
+        var connectedDots = [];
+
+        var connections = new Group();
+        function generateConnections(paths) {
+            // Remove the last connection paths:
+            connections.children = [];
+
+            for (var i = 0, l = paths.length; i < l; i++) {
+                for (var j = i - 1; j >= 0; j--) {
+                    var path = metaball(paths[i], paths[j], 0.5, handle_len_rate, 300);
+                    if (path) {
+                        
+                        if(connectedDots.indexOf(j) < 0){
+                            connectedDots.push(j);
+                            console.log(j); 
+                        }
+
+                        if (j == 0){
+                            E4.play();
+                        } 
+                        if (j == 1){
+                            C4.play();
+                        }
+
+                        if (j == 2){
+                            A4.play();
+                        }
+
+                        if (j == 3){
+                            F4.play();
+                        }
+
+                        if (j == 4){
+                            D3.play();
+                            D4.play();
+                        }
+
+                        if (j == 5){
+                            G3.play();
+
+                        }
+
+                        if (j == 6){
+                            B4.play();
+                            B2.play();
+                        }
+
+                        if (j == 7){
+                            C5.play();
+                        }
+
+                        if (j == 8){
+                            A3.play();
+                            A2.play();
+                            
+                        }
+
+                        if (j == 9){
+                            E5.play();
+                            E4.play();
+                        }
+
+                        if (j == 10){
+                            B4.play();
+                        }
+
+                        if (j == 11){
+                            G2.play();
+                            G3.play();
+                        }
+
+                        if (j == 12){
+                            A4.play();
+                        }
+
+                        if (j == 13){
+                            F4.play();
+                            F3.play();
+                        }
+
+                        if (j == 14){
+                            D5.play();
+                        }
+
+                        if (j == 15){
+                            B4.play();
+                        }
+
+                        if (j == 16){
+                            G3.play();
+                            G2.play();
+                        }
+
+                        if (j == 17){
+                            E4.play();
+                        }
+
+                        if (j == 18){
+                            C5.play();
+                            C4.play();
+                        }
+
+                        if (j == 19){
+                            A3.play();
+                            A4.play();
+                            A2.play();
+                        }
+
+                     //        audio.addEventListener('ended', function () {
+                     //         j = ++j < playlist.length ? j : 0;
+                     //         console.log(j)
+                     //         audio.src = playlist[j];
+                     //         audio.play();
+                     //        }, true);
+                     //            audio.volume = 0.3;
+                     //            audio.loop = false;
+                     //            audio.src = playlist[0];
+                     //            audio.play();
+
+
+
+                    	   // if (var j == 2){
+                        //      D4.play();
+                        //      }
+
+                        connections.appendTop(path);
+                        path.removeOnMove();
+                    }
+                     
+                }
+                //Why doesn't this work?
+
+            }
+
+        }
+
+
+        generateConnections(circlePaths);
+
+        // ---------------------------------------------
+        function metaball(ball1, ball2, v, handle_len_rate, maxDistance) {
+            var center1 = ball1.position;
+            var center2 = ball2.position;
+            var radius1 = ball1.bounds.width / 2;
+            var radius2 = ball2.bounds.width / 2;
+            var pi2 = Math.PI / 2;
+            var d = center1.getDistance(center2);
+            var u1, u2;
+
+            if (radius1 == 0 || radius2 == 0)
+                return;
+
+            if (d > maxDistance || d <= Math.abs(radius1 - radius2)) {
+                return;
+            } else if (d < radius1 + radius2) { // case circles are overlapping
+                u1 = Math.acos((radius1 * radius1 + d * d - radius2 * radius2) /
+                        (2 * radius1 * d));
+                u2 = Math.acos((radius2 * radius2 + d * d - radius1 * radius1) /
+                        (2 * radius2 * d));
+            } else {
+                u1 = 0;
+                u2 = 0;
+            }
+
+            var angle1 = (center2 - center1).getAngleInRadians();
+            var angle2 = Math.acos((radius1 - radius2) / d);
+            var angle1a = angle1 + u1 + (angle2 - u1) * v;
+            var angle1b = angle1 - u1 - (angle2 - u1) * v;
+            var angle2a = angle1 + Math.PI - u2 - (Math.PI - u2 - angle2) * v;
+            var angle2b = angle1 - Math.PI + u2 + (Math.PI - u2 - angle2) * v;
+            var p1a = center1 + getVector(angle1a, radius1);
+            var p1b = center1 + getVector(angle1b, radius1);
+            var p2a = center2 + getVector(angle2a, radius2);
+            var p2b = center2 + getVector(angle2b, radius2);
+
+            // define handle length by the distance between
+            // both ends of the curve to draw
+            var totalRadius = (radius1 + radius2);
+            var d2 = Math.min(v * handle_len_rate, (p1a - p2a).length / totalRadius);
+
+            // case circles are overlapping:
+            d2 *= Math.min(1, d * 2 / (radius1 + radius2));
+
+            radius1 *= d2;
+            radius2 *= d2;
+
+            var path = new Path({
+                segments: [p1a, p2a, p2b, p1b],
+                style: ball1.style,
+                closed: true
+            });
+            var segments = path.segments;
+            segments[0].handleOut = getVector(angle1a - pi2, radius1);
+            segments[1].handleIn = getVector(angle2a + pi2, radius2);
+            segments[2].handleOut = getVector(angle2b - pi2, radius2);
+            segments[3].handleIn = getVector(angle1b + pi2, radius1);
+            return path;
+        }
+
+        // ------------------------------------------------
+        function getVector(radians, length) {
+            return new Point({
+                // Convert radians to degrees:
+                angle: radians * 180 / Math.PI,
+                length: length
+            });
+        }
+
+
+    </script>
+</head>
+<body>
+    <audio preload="auto" id="A2"> <source src="audio/A2.mp3"> </audio>
+    <audio preload="auto" id="A3"> <source src="audio/A3.mp3"> </audio>
+    <audio preload="auto" id="A4"> <source src="audio/A4.mp3"> </audio>
+    <audio preload="auto" id="B2"> <source src="audio/B2.mp3"> </audio>
+    <audio preload="auto" id="B3"> <source src="audio/B3.mp3"> </audio>
+    <audio preload="auto" id="B4"> <source src="audio/B4.mp3"> </audio>
+    <audio preload="auto" id="C3"> <source src="audio/C3.mp3"> </audio>
+    <audio preload="auto" id="C4"> <source src="audio/C4.mp3"> </audio>
+    <audio preload="auto" id="C5"> <source src="audio/C5.mp3"> </audio>
+    <audio preload="auto" id="D3"> <source src="audio/D3.mp3"> </audio>
+    <audio preload="auto" id="D4"> <source src="audio/D4.mp3"> </audio>
+    <audio preload="auto" id="D5"> <source src="audio/D5.mp3"> </audio>
+    <audio preload="auto" id="E3"> <source src="audio/E3.mp3"> </audio>
+    <audio preload="auto" id="E4"> <source src="audio/E4.mp3"> </audio>
+    <audio preload="auto" id="E5"> <source src="audio/E5.mp3"> </audio>
+    <audio preload="auto" id="F2"> <source src="audio/F2.mp3"> </audio>
+    <audio preload="auto" id="F3"> <source src="audio/F3.mp3"> </audio>
+    <audio preload="auto" id="F4"> <source src="audio/F4.mp3"> </audio>
+    <audio preload="auto" id="G2"> <source src="audio/G2.mp3"> </audio>
+    <audio preload="auto" id="G3"> <source src="audio/G3.mp3"> </audio>
+    <audio preload="auto" id="G4"> <source src="audio/G4.mp3"> </audio>
+    <img id="BG" src="img/Chorale.png"></img>
+
+	 <canvas id="myCanvas" resize width="1600" height="3500"></canvas>
+     <p id="demo"></p>
+	<script type="text/javascript" src="js/jquery-min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/p5.js"></script>
+    <script type="text/javascript" src="js/p5.play.js"></script>
+
+
+</body>
+</html>
