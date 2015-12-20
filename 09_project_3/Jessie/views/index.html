@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SEGUE</title>
+	<meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+	<link rel="stylesheet" href="css/normalize.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="shortcut icon" type="image/ico" href="img/favicon.ico">
+</head>
+
+<body>
+
+	<header>
+		<h1>SEGUE</h1>
+		<div id="user-profile"></div>
+	</header>
+
+	<div id="main-container">
+		<section class="date">
+
+			<h2>Nov 13, 2015</h2>
+
+		</section>
+
+	<!-- Templates -->
+	<!-- Article to read -->
+	<script id="tpl-article" type="text/html">
+		<section class="article-container">
+			<h1 class="title"> <%= data.title %> </h1>
+			<h2 class="author-name"> <%= data.source %> </h2>
+			<h2 class="article-source"> <%= data.author %> </h2>
+			<div class="article-text">
+				<p> <%= data.text %> </p>
+			</div>
+		</section>
+	</script>
+
+	<!-- Link list for articles to choose from -->
+	<script id="tpl-link-list" type="text/html">
+
+		<section class="link-container">
+			<ul class="link-items">
+				<% for(var links in data){ %>
+					<li class="link" id= <%=data[links].id%> > <%= data[links].keyword %> </li>
+				<% } %>
+			</ul>
+		</section>
+
+	</script>
+
+	<!-- User profile -->
+	<script id="tpl-user-profile" type="text/html">
+
+	<section id="profile-container">
+		<div id="profile">
+			<h1>Reading Path</h1>
+			<div id="close-profile"> X </div>
+			<ul class="reading-path">
+				<% for(var links in data){ %>
+					<li class="path" id= <%=data[links].articleId%> > 
+						<h2> <%= data[links].articleKeyword %> </h2>
+						<p class="path-p"> <%= data[links].articleTitle %> </p>
+					</li>
+				<% } %>
+			</ul>
+		</div>
+	</section>
+
+	</script>
+
+	</div>
+	<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+	<script type="text/javascript" src="js/jquery-min.js"></script>
+	<script type="text/javascript" src="js/underscore-min.js"></script>
+	<script type="text/javascript" src="js/main.js"> </script>
+</body>
+</html>

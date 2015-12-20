@@ -2,13 +2,13 @@ var request = require('request'),   // Make browser requests
     cheerio = require('cheerio'),   // A server-side JQuery
     fs      = require('fs');        // File System actions
 
-var baseUrl = 'http://hypebeast.com/footwear';
+var baseUrl = 'http://store.hypebeast.com/';
 var imgUrls = [];
 
 var loadNewPage = function(url, page){
     
     if(page !== undefined){
-        url = 'http://hypebeast.com/footwear' + '/' + page;
+        url = url + 'page' + '/' + page;
     }
     console.log('Loading page ' + url);
 
@@ -17,13 +17,11 @@ var loadNewPage = function(url, page){
         if(!error){
 
             var $ = cheerio.load(html);
-            var p = $('.cover');
+            var p = $('.picture');
             for(var i = 0; i < p.length; i++){
-                var imgSrc = 'http://hypebeast.com' +
-                             $(p[i]).children('img').attr('src');
+                imgSrc = $(p[i]).children('img').attr('src');        
                 imgUrls.push(imgSrc);
             }
-            console.log(imgUrls);
         }
 
         // Pagination
@@ -48,11 +46,10 @@ var loadNewPage = function(url, page){
 var downloadImages = function(i){
     console.log('Downloading images.');
 
-    var folder = 'images/';
     var filename = imgUrls[i].substring(imgUrls[i].lastIndexOf('/') + 1, imgUrls[i].length);
-    console.log('Saving ' + filename + ' to ' + folder);
+    console.log('Saving ' + filename);
     
-    var f = fs.createWriteStream(folder + filename);
+    var f = fs.createWriteStream(filename);
         f.on('finish', function(){
             console.log('Finished saving image to file.');
             // Download next image

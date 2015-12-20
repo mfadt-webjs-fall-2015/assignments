@@ -1,0 +1,90 @@
+/* your style begins here */
+body{
+	background-color: #98B7C7;
+}
+
+#heading{
+	text-align: center;
+	font-size: 30px;
+	color: #B1D5E8;
+	margin-top: 25px;
+	margin-bottom: 0px;
+}
+
+#description{
+	font-style: italic;
+	margin-top: 5px;
+	text-align: center;
+	font-size: 20px;
+	color: #B1D5E8;
+}
+#inputbox {
+
+	margin: 0 auto;
+	margin-top: 20px;
+	text-align: center;
+
+
+}
+textarea{
+
+	padding: 50px;
+	border-width: 25px;
+	border-color: #D3D5E8;
+	background-color: #88A4B2;
+	color: white;
+	font-size: 25px;
+	height: 200px;
+	width: 700px;	
+}
+
+textarea:hover{
+	transition: border-color 1.0s ease;
+	outline: none !important;
+	border-width: 25px;
+	border-color: #D6C0EB;
+
+}
+
+
+textarea:focus{
+	transition: border-color 0.5s ease;
+	outline: none !important;
+	border-width: 25px;
+	border-color: #E2C0EB;
+
+}
+
+
+#buttondiv{
+
+	width: 100%;
+	margin-top: 10px;
+	text-align: center;
+}
+
+button {
+
+	height: 70px;
+	width: 200px;
+	border: none;
+	margin: 0 auto;
+	background-color:#C4C9EB;
+	font-size: 25px;
+	color: white;
+	/*border-radius: 5px;*/
+
+
+}
+
+button:hover{
+	transition: background-color 0.5s ease;
+	background-color:#E1C9EB;
+	
+
+}
+
+button:focus{
+
+	outline: none;
+}
