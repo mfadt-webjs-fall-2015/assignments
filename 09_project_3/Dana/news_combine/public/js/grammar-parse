@@ -1,0 +1,99 @@
+var selectionEvent = function(query){
+		console.log("selection Event initiated, waiting for user to select headline");
+		//now we determine which is the main headline
+		//demo version it will be 3;
+		
+		var selected = 2;
+		// attachMain(selected);
+		console.log("user selected " + selected);
+		findSimilarHeadlines(selected, query);
+		
+	}
+
+
+
+
+	var appendMain = function(selected){
+		console.log("append main initiated");
+		var mainDiv = $('<div/>').addClass('main-sentence').html(headlineArray[selected].headline);
+		$('#main-headline').append(mainDiv);
+		// appendRelations(selected);
+	}
+
+	var appendRelations = function(selected){
+		var commonHeadlines = headlineArray[selected]['commonHeadlines'];
+	
+		// for(var i=0; i<commonHeadlines.length; i++){
+			var grammar = headlineArray[i].grammar;
+			// var sentence = [];
+			recursive(grammar);
+
+			function recursive(obj){
+					
+					if(obj["label"] == "S"){
+
+					recursive(obj["child"]);
+
+					}else{
+						if(obj["label"] == "NP" || obj["label"] == "VP"){
+							recursive(obj["child"]);
+						}
+						else{
+						//	sentence.push(obj["label"]);
+							console.log(obj["label"]);
+							if(obj["next"]){
+								recursive(obj["next"]);
+							}else{
+								verb(headlineArray[i].grammar);
+							}
+							
+						}
+					}
+					// console.log(sentence);
+					
+			}
+		// }
+
+	}
+
+	 function verb(obj){
+
+				if(obj["label"] == "S"){
+
+				verb(obj["child"]);
+
+				}else{
+					if(obj["label"] == "NP"){
+						/*is this right?*/
+						if(obj["next"]){
+							verb(obj["next"]); //go to next instead of child
+						}else{
+							console.log(obj["label"]);
+							verb(obj["child"]);
+						}
+					}else {	
+						if(obj["label"] == "VP" ){
+							console.log(obj["label"]); // log VP
+							verb(obj["child"]);	
+						} 
+						else{
+							// sentence.push(obj["label"]);
+							console.log(obj["label"]); //what the word is
+							if(obj["next"]){
+								verb(obj["next"]);
+							}else{
+								//ADVP(headlineArray[12].grammar,sentence);
+							}
+
+						}
+					
+						
+					}
+				}
+
+
+
+
+	}
+
+
