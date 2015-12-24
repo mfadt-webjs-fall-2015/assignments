@@ -1,0 +1,30 @@
+body {
+	overflow: hidden;
+	/*background-color: #262626;*/
+
+}
+
+#BG{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	index: 0;
+}
+
+::-webkit-scrollbar { 
+    display: none; 
+}
+#text{
+	index: 5;
+	position: absolute;
+	right: 100px;
+	top: 200px;
+}
+#demo {
+
+	index: 5;
+	position: absolute;
+	top: 50px;
+	left: 50px;
+	color: white;
+}

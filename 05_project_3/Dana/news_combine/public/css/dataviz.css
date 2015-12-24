@@ -1,0 +1,215 @@
+
+/*	#relations {
+		cursor: pointer;
+		font-size: 20px;
+		color: white;
+
+	}*/
+
+	h1{
+		font-size: 20px;
+	}
+
+
+	#title3{
+		font-size: 20px;
+		color: white;
+		margin-bottom: 50px;
+		text-align: center;
+	}
+
+	/*.fake{
+		display: none;
+	}*/
+
+	.text{
+		font-size: 26px;
+	}
+
+	.phraseName {
+		position: absolute;
+		display: block;
+		white-space: nowrap;
+	/*	position: absolute;*/
+		-webkit-transform-style: preserve-3d;
+    	transform-style: preserve-3d;
+
+    	/*transition*/
+    	-webkit-transition: 1s ease-in-out; /* Safari */
+    	transition: 1s ease-in-out;
+    	text-align: center;
+
+	}
+
+	.word {
+		float: left;
+		text-align: center;
+		margin-right: 30px;
+		position: relative;
+		color: white;
+		display: inline-block;
+	/*	perspective-origin: 15% -70px;
+		-webkit-transform-style: preserve-3d;
+		-webkit-perspective: 1000;
+		transform-style: preserve-3d;
+		perspective: 2000px;*/
+		 -webkit-transition: 1s ease-in-out; /* Safari */
+    	transition: 1s ease-in-out;
+
+	}
+		.bracket {
+		  border-right: 1px solid white;
+		  border-left: 1px solid white;
+		  border-bottom: 1px solid white;
+		  height: 10px;
+		  margin-top: 10px;
+
+		}
+
+	.tooltip {
+		z-index: 10;
+	  color: #fff;
+	  top: -20px;
+	  display: block;
+	  left: 0px;
+	  margin-bottom: 15px;
+	  border: white solid 1px;
+	  opacity: 1;
+	  padding: 5%;
+	  pointer-events: none;
+	  position: absolute;
+	  width: 100%;
+	  -webkit-transform: translateY(-10px);
+	     -moz-transform: translateY(-10px);
+	      -ms-transform: translateY(-10px);
+	       -o-transform: translateY(-10px);
+	          transform: translateY(-10px);
+	  -webkit-transition: all .25s ease-out;
+	     -moz-transition: all .25s ease-out;
+	      -ms-transition: all .25s ease-out;
+	       -o-transition: all .25s ease-out;
+	          transition: all .25s ease-out;
+	  -webkit-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+	     -moz-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+	      -ms-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+	       -o-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+	          box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+}
+
+.tooltip:before{
+  bottom: -0px;
+  content: " ";
+  display: block;
+  height: 20px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+}  
+
+.tooltip:after {
+  border-left: solid transparent 5px;
+  border-right: solid transparent 5px;
+  border-top: solid #fff 5px;
+  bottom: -5px;
+  content: " ";
+  height: 0;
+  left: 50%;
+  position: absolute;
+  width: 0;
+}
+  
+h1:hover .tooltip{
+	opacity: 1;
+  pointer-events: auto;
+  -webkit-transform: translateY(0px);
+     -moz-transform: translateY(0px);
+      -ms-transform: translateY(0px);
+       -o-transform: translateY(0px);
+          transform: translateY(0px);
+}
+
+	
+	#headlines {
+		margin-left: 100px;
+		margin-top: 160px;
+		cursor: pointer;
+		font-size: 14px; 
+		color: #333333;
+		float: none;
+		clear: none;
+
+	}
+
+	.headline{
+		background-color: rgba(255,255,255, 0.89);
+		margin-bottom: 10px;
+		display: inline-block;
+		padding: 3px;
+		float: left;
+		clear: left;
+		border-bottom: black 1px solid;
+		cursor: pointer;
+	}
+
+	.button{
+		border: none;
+		font-size: 10px;
+		color: white;
+		font-family: 'Poiret One', cursive;
+		font-weight: bold;
+		margin-top: 1px;
+		width: 40px;
+		height: 40px;
+		background: none;
+		 display:inline-block;
+	    -webkit-transform:scale(2,1); 
+	    -moz-transform:scale(2,1); 
+	    -ms-transform:scale(2,1); 
+	    -o-transform:scale(2,1); 
+	    transform:scale(3,1); 
+	   /* text-shadow: 1px 0px 3px yellow*/
+
+		}
+	.button:active{
+		outline: none;
+		color: grey;		
+	}
+	.button:focus{
+		outline:none;
+		cursor: pointer;
+	}
+	.button:hover{
+		color: grey;
+		cursor: pointer;
+	}
+	#down_arrow{
+		margin-top: 35px;
+	}
+	#up_arrow{
+		margin-top: 5px;
+	}
+
+	.options{
+		z-index: 10;
+		margin-right: 5px;
+		font-size: 15px;
+		color: white; 
+		margin: auto;
+		width: 50px;
+	}
+
+	.options:hover{
+		color: gray;
+		cursor: pointer;
+	}
+
+
+#datavis-page{
+	margin-top: 6000px;
+}
+
+#headlines-visual{
+	margin-left: 100px;
+	-webkit-transition: 1s ease-in-out;
+    transition: 1s ease-in-out;
+}
